@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1029527483193-5j0s9695u0gevdaighu7igrglumjs9ni.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1029527483193-5j0s9695u0gevdaighu7igrglumjs9ni</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1029527483193-l5e49c1jvkptcauq40blgjt4r4v18dba.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBCwzguCllWMeeavN_9x6pVAr7dKgysm2g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1029527483193</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.zumlo.app</string>
+	<key>PROJECT_ID</key>
+	<string>zumlo-6dc05</string>
+	<key>STORAGE_BUCKET</key>
+	<string>zumlo-6dc05.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1029527483193:ios:98515af8e30bf7a1466ee8</string>
+</dict>
+</plist>

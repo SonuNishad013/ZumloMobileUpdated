@@ -5,8 +5,16 @@ require Pod::Executable.execute_command('node', ['-p',
     {paths: [process.argv[1]]},
   )', __dir__]).strip
 
+# # Add NitroModules spec repo (required for NitroIap)
+# source 'https://github.com/CocoaPods/Specs.git'
+# source 'https://github.com/software-mansion/react-native-nitro-specs.git'
+
 platform :ios, min_ios_version_supported
 prepare_react_native_project!
+pod 'Firebase', :modular_headers => true
+pod 'FirebaseCoreInternal', :modular_headers => true
+pod 'GoogleUtilities', :modular_headers => true
+pod 'FirebaseCore', :modular_headers => true
 
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
@@ -17,18 +25,28 @@ end
 target 'ZumloMobileLts' do
   config = use_native_modules!
 
-  use_react_native!(
-    :path => config[:reactNativePath],
-    # An absolute path to your application root.
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
-  )
+  # use_react_native!(
+  #   :path => config[:reactNativePath],
+  #   :app_path => "#{Pod::Config.instance.installation_root}/..",
+  #   :new_arch_enabled => true,
+  #   :use_hermes => true,
+  #   :enable_bridgeless => false,
+  #   :enable_codegen => false
+  #   # :new_arch_enabled => false
+  # )
+use_react_native!(
+  :path => config[:reactNativePath],
+  :app_path => "#{Pod::Config.instance.installation_root}/..",
+  :hermes_enabled => true,
+  :fabric_enabled => true,
+  :new_arch_enabled => false
+)
 
   post_install do |installer|
     react_native_post_install(
       installer,
       config[:reactNativePath],
       :mac_catalyst_enabled => false,
-      # :ccache_enabled => true
     )
   end
 end

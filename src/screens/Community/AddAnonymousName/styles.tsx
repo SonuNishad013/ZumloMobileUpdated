@@ -1,0 +1,216 @@
+import { StyleSheet } from "react-native";
+import { moderateScale, textScale } from "../../../constant/responsiveStyle";
+import colors from "../../../constant/colors";
+import { textLabelSize } from "../../../utils/TextConfig";
+
+export const styles = StyleSheet.create({
+  headerContainer: {
+    marginHorizontal: moderateScale(19),
+    paddingBottom: moderateScale(15),
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollViewContent: {
+    flexGrow: 1,
+  },
+  mainContent: {
+    marginHorizontal: moderateScale(19),
+  },
+  title: {
+    fontSize: textScale(24),
+    color: colors.SurfCrest,
+    fontWeight: "700",
+    marginTop: moderateScale(20),
+  },
+  description: {
+    fontSize: textLabelSize.subtTitleFont,
+    color: colors.SurfCrest,
+    fontWeight: "400",
+    width: "90%",
+    marginTop: moderateScale(10),
+    fontStyle: "italic",
+  },
+  Headerdescription: {
+    fontSize: textLabelSize?.mainTitle,
+    color: colors.royalOrangeDark,
+    fontWeight: "600",
+    // width: "90%",
+    marginTop: moderateScale(5),
+  },
+  inputContainer: {
+    backgroundColor: colors.transparent,
+    width: "auto",
+    borderColor: colors.royalOrange,
+    marginTop: moderateScale(25),
+  },
+  inputText: {
+    color: colors.SurfCrest,
+  },
+  buttonContainer: {
+    width: "auto",
+    marginBottom: moderateScale(30),
+    marginHorizontal: moderateScale(19),
+    marginTop: moderateScale(20),
+  },
+  imageContainer: {
+    marginTop: moderateScale(50),
+  },
+  defaultImage: {
+    height: moderateScale(80),
+    width: moderateScale(52),
+  },
+  selectedImage: {
+    height: moderateScale(121),
+    width: moderateScale(121),
+  },
+  footerContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: moderateScale(15),
+  },
+  checkbox: {
+    height: moderateScale(18),
+    width: moderateScale(18),
+    borderWidth: moderateScale(1),
+    borderColor: colors.SurfCrest,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: moderateScale(3),
+  },
+  checkboxImage: {
+    tintColor: colors.SurfCrest,
+    height: moderateScale(13),
+    width: moderateScale(13),
+  },
+  agreementText: {
+    color: colors.SurfCrest,
+    fontSize: textLabelSize?.subtTitleFont,
+    marginLeft: moderateScale(10),
+  },
+  flatListContent: {
+    marginTop: moderateScale(25),
+    alignSelf: "center",
+  },
+  categoryItem: {
+    width: moderateScale(105),
+    height: moderateScale(105),
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: moderateScale(1),
+    borderRadius: moderateScale(70),
+    borderColor: colors?.royalOrange,
+    margin: moderateScale(5),
+    borderStyle: "dashed",
+  },
+  categoryImageContainer: {
+    width: moderateScale(100),
+    height: moderateScale(100),
+    borderRadius: moderateScale(90),
+    overflow: "hidden",
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: colors?.polishedPine,
+    borderWidth: moderateScale(1),
+  },
+  categoryImage: {
+    width: "100%",
+    height: "100%",
+    borderRadius: moderateScale(13),
+  },
+  headerContainerLine: {
+    marginTop: moderateScale(10),
+    marginLeft: moderateScale(19),
+  },
+  headerText: {
+    fontSize: textLabelSize?.titleFont,
+    fontWeight: "600",
+    color: colors?.SurfCrest,
+    marginRight: moderateScale(3),
+  },
+  subheaderText: {
+    fontSize: textLabelSize?.subtTitleFont,
+    fontWeight: "600",
+    color: colors?.SurfCrest,
+    marginRight: moderateScale(3),
+    textAlign: "auto",
+    marginTop: moderateScale(10),
+  },
+  headerLine: {
+    height: moderateScale(10),
+
+    flex: 1,
+    marginTop: moderateScale(8),
+    opacity: 0.5,
+  },
+  imageError: {
+    color: colors?.royalOrange,
+    fontSize: textScale(10),
+    fontWeight: "400",
+    paddingBottom: moderateScale(10),
+    marginHorizontal: moderateScale(19),
+  },
+  rightWhiteCondition: {
+    position: "absolute",
+    alignItems: "center",
+  },
+  imageErrText: {
+    color: colors?.royalOrange,
+    fontSize: textScale(14),
+    fontWeight: "400",
+  },
+  boxView: {
+    position: "relative",
+    backgroundColor: colors?.SurfCrest,
+    height: moderateScale(30),
+    width: moderateScale(30),
+    borderRadius: moderateScale(15),
+    borderWidth: moderateScale(2),
+    bottom: moderateScale(-5),
+    // right: moderateScale(-55),
+    borderColor: colors?.prussianBlue,
+    zIndex: 1000,
+  },
+  alisNameInput: {
+    backgroundColor: colors.transparent,
+    width: "auto",
+    borderColor: colors.polishedPine,
+    marginTop: moderateScale(25),
+  },
+  inputColor: {
+    color: colors?.prussianBlue,
+  },
+  uploadPictureText: {
+    color: colors.polishedPineOP3,
+    fontSize: moderateScale(11),
+    marginLeft: moderateScale(10),
+    marginRight: moderateScale(9),
+    marginTop: moderateScale(5),
+  },
+  editIconView: {
+    backgroundColor: colors?.SurfCrest,
+    height: moderateScale(30),
+    width: moderateScale(30),
+    borderRadius: moderateScale(15),
+    borderWidth: moderateScale(2),
+    bottom: moderateScale(-5),
+    right: moderateScale(-55),
+    borderColor: colors?.prussianBlue,
+    position: "absolute",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  penBlueIconView: {
+    backgroundColor: colors?.SurfCrest,
+    height: moderateScale(30),
+    width: moderateScale(30),
+    borderRadius: moderateScale(15),
+    borderWidth: moderateScale(2),
+    bottom: moderateScale(-1),
+    right: moderateScale(-50),
+    borderColor: colors?.polishedPine,
+    position: "absolute",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
