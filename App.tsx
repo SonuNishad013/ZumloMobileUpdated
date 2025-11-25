@@ -43,8 +43,7 @@ import CommonAlert from "./src/components/CommonAlert/CommonAlert";
 let appToken: string;
 
 if (Platform.OS === "ios") {
-  appToken = "AA4512f8ba27c4ed880f1ef18d852ee471e3a9af9c-NRMA"; //for base
-  // appToken = "AAad692f9b1edff685dd901fd4db23527dd592bc05-NRMA"; ios-2
+  appToken = "AA4512f8ba27c4ed880f1ef18d852ee471e3a9af9c-NRMA";
 } else {
   appToken = "AAf956ad69acd0cef6e44db942c29fd72c3c62a899-NRMA";
 }
