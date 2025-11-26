@@ -1,5 +1,6 @@
 import * as React from "react";
 import {
+    SafeAreaView,
     StyleSheet,
     Dimensions,
     View,
@@ -12,12 +13,11 @@ import * as shape from "d3-shape";
 import Svg, { Path } from "react-native-svg";
 import StaticTabbar from "./StaticTabbar";
 import { moderateScale } from "../../../constant/responsiveStyle";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 // let width = 390;
 let { width } = Dimensions.get("window");
-const height = Platform.OS == 'ios' ? moderateScale(74) : moderateScale(83);
+const height = Platform.OS == 'ios' ? moderateScale(64) : moderateScale(83);
 
 const getPath = (tabWidth: number, width: number, totalTab: number) => {
 
@@ -157,8 +157,8 @@ export default class Tabbar extends React.PureComponent<Props> {
                                     transform: [{ translateX }],
                                     justifyContent: "center",
                                     alignItems: "center",
-                                    zIndex: 90,
-                                    // height: 180
+                                    zIndex: -99,
+                                    height: 200
                                 }}
                             >
                                 <Path fill={tabBarBackgroundColor} {...{ d }} />
@@ -167,7 +167,13 @@ export default class Tabbar extends React.PureComponent<Props> {
                                 <StaticTabbar defaultActiveTabIndex={this?.props?.state?.index} {...this.props} {...{ tabs, value }} />
                             </View>
                         </View>
-
+                        <SafeAreaView
+                            style={{
+                                alignSelf: "center",
+                                borderBottomLeftRadius,
+                                borderBottomRightRadius,
+                            }}
+                        />
                     </View>
                 </>
             );

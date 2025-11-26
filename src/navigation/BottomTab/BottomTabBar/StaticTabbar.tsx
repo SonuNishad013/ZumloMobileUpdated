@@ -1,4 +1,4 @@
-
+import { platform } from "os";
 import * as React from "react";
 import {
   View,
@@ -160,7 +160,7 @@ export default class StaticTabbar extends React.PureComponent<Props> {
                   justifyContent: "center",
                   alignItems: "center",
                   opacity: opacity1,
-                  zIndex: 99,
+                  zIndex: -99,
                   //transform:[{scale:2}]
                   // backgroundColor:'red'
                 }}

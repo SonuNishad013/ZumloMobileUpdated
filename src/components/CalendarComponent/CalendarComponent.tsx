@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   Modal,
   Platform,
@@ -7,15 +7,15 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
-} from 'react-native';
-import moment from 'moment';
-import DatePicker from 'react-native-styled-datepicker';
-import { height, moderateScale, width } from '../../constant/responsiveStyle';
-import { YYYY_MM_DD } from '../../constant/dateFormatConstants';
-import ButtonWithIcon from '../Buttons/ButtonWithIcon';
-import { CrossIcon } from '../../assets';
-import colors from '../../constant/colors';
-import { CalendarWithList } from './classCalendar';
+} from "react-native";
+import moment from "moment";
+import DatePicker from "react-native-styled-datepicker";
+import { height, moderateScale, width } from "../../constant/responsiveStyle";
+import { YYYY_MM_DD } from "../../constant/dateFormatConstants";
+import ButtonWithIcon from "../Buttons/ButtonWithIcon";
+import { CrossIcon } from "../../assets";
+import colors from "../../constant/colors";
+import { CalendarWithList } from "./classCalendar";
 const CalenderCloseButton = ({ onPress }) => {
   return (
     <View style={styles.closeIconStyle}>
@@ -31,7 +31,7 @@ const CalenderCloseButton = ({ onPress }) => {
   );
 };
 
-const DISABLED_DAYS = ['Saturday', 'Sunday'];
+const DISABLED_DAYS = ["Saturday", "Sunday"];
 
 interface CalendarComponentProps {
   setShowCalender?: any;
@@ -65,13 +65,13 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
   const [state, setState] = useState<any>();
   const [perDate, setPerDate] = useState<any>();
   useEffect(() => {
-    if (perDate == 'Invalid date') return;
+    if (perDate == "Invalid date") return;
     setPerDate(moment(currentDate).format(YYYY_MM_DD));
     console.log(
-      'currentDate and perDate',
+      "currentDate and perDate",
       currentDate,
       perDate,
-      moment(currentDate, 'DD-MMM-YYYY').format(YYYY_MM_DD),
+      moment(currentDate, "DD-MMM-YYYY").format(YYYY_MM_DD)
     );
   }, [currentDate]);
 
@@ -81,10 +81,10 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
     month: any,
     year: any,
     days: any,
-    includeHolidays = true,
+    includeHolidays = true
   ) => {
-    let start: any = moment().month(month).year(year).startOf('month');
-    const end: any = moment().month(month).year(year).endOf('month');
+    let start: any = moment().month(month).year(year).startOf("month");
+    const end: any = moment().month(month).year(year).endOf("month");
     let dates: any = {};
     let holidaysList: any = [];
     holidaysList = [];
@@ -96,37 +96,37 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
         start.day() != 6 &&
         start.date() != 31 &&
         (holidaysList?.length > 0
-          ? !holidaysList?.includes(start?.format('DD-MM-YYYY'))
+          ? !holidaysList?.includes(start?.format("DD-MM-YYYY"))
           : true)
       ) {
-        dates[start.format('YYYY-MM-DD')] = { disabled: false };
+        dates[start.format("YYYY-MM-DD")] = { disabled: false };
       } else {
-        dates[start.format('YYYY-MM-DD')] = { disabled: true };
+        dates[start.format("YYYY-MM-DD")] = { disabled: true };
       }
-      start.add(1, 'days');
+      start.add(1, "days");
     }
     return dates;
   };
 
   const disableForWeeklyFreq = (month: any, year: any) => {
     try {
-      let start: any = moment().month(month).year(year).startOf('month');
-      let end: any = moment().month(month).year(year).endOf('month');
+      let start: any = moment().month(month).year(year).startOf("month");
+      let end: any = moment().month(month).year(year).endOf("month");
       let dates: any = {};
       while (start.isBefore(end)) {
         if (
-          start >= moment(minDate).subtract(1, 'd') &&
+          start >= moment(minDate).subtract(1, "d") &&
           start < moment(maxDate) &&
           (start.date() == 1 ||
             start.date() == 8 ||
             start.date() == 15 ||
             start.date() == 22)
         ) {
-          dates[start.format('YYYY-MM-DD')] = { disabled: false };
+          dates[start.format("YYYY-MM-DD")] = { disabled: false };
         } else {
-          dates[start.format('YYYY-MM-DD')] = { disabled: true };
+          dates[start.format("YYYY-MM-DD")] = { disabled: true };
         }
-        start.add(1, 'days');
+        start.add(1, "days");
       }
       return dates;
     } catch (error) {}
@@ -134,20 +134,20 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
 
   const disableForWeekDayFreq = (month: any, year: any) => {
     try {
-      let start: any = moment().month(month).year(year).startOf('month');
-      let end: any = moment().month(month).year(year).endOf('month');
+      let start: any = moment().month(month).year(year).startOf("month");
+      let end: any = moment().month(month).year(year).endOf("month");
       let dates: any = {};
       while (start.isBefore(end)) {
         if (
-          start >= moment(minDate).subtract(1, 'd') &&
+          start >= moment(minDate).subtract(1, "d") &&
           start < moment(maxDate) &&
           start.day() == moment(sipData?.date).day()
         ) {
-          dates[start.format('YYYY-MM-DD')] = { disabled: false };
+          dates[start.format("YYYY-MM-DD")] = { disabled: false };
         } else {
-          dates[start.format('YYYY-MM-DD')] = { disabled: true };
+          dates[start.format("YYYY-MM-DD")] = { disabled: true };
         }
-        start.add(1, 'days');
+        start.add(1, "days");
       }
       return dates;
     } catch (error) {}
@@ -155,20 +155,20 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
 
   const disableForMonthFreq = (month: any, year: any) => {
     try {
-      let start: any = moment().month(month).year(year).startOf('month');
-      let end: any = moment().month(month).year(year).endOf('month');
+      let start: any = moment().month(month).year(year).startOf("month");
+      let end: any = moment().month(month).year(year).endOf("month");
       let dates: any = {};
       while (start.isBefore(end)) {
         if (
-          start >= moment(minDate).subtract(1, 'd') &&
+          start >= moment(minDate).subtract(1, "d") &&
           start < moment(maxDate) &&
           start.date() == moment(sipData?.date).date()
         ) {
-          dates[start.format('YYYY-MM-DD')] = { disabled: false };
+          dates[start.format("YYYY-MM-DD")] = { disabled: false };
         } else {
-          dates[start.format('YYYY-MM-DD')] = { disabled: true };
+          dates[start.format("YYYY-MM-DD")] = { disabled: true };
         }
-        start.add(1, 'days');
+        start.add(1, "days");
       }
       return dates;
     } catch (error) {}
@@ -176,21 +176,21 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
 
   const disableForQaterlyFreq = (month: any, year: any) => {
     try {
-      let start: any = moment().month(month).year(year).startOf('month');
-      let end: any = moment().month(month).year(year).endOf('month');
+      let start: any = moment().month(month).year(year).startOf("month");
+      let end: any = moment().month(month).year(year).endOf("month");
       let dates: any = {};
       while (start.isBefore(end)) {
         if (
-          start >= moment(minDate).subtract(1, 'd') &&
+          start >= moment(minDate).subtract(1, "d") &&
           start < moment(maxDate) &&
           moment(sipData?.date).date() == start.date() &&
-          start.diff(moment(sipData?.date), 'months') % 3 == 0
+          start.diff(moment(sipData?.date), "months") % 3 == 0
         ) {
-          dates[start.format('YYYY-MM-DD')] = { disabled: false };
+          dates[start.format("YYYY-MM-DD")] = { disabled: false };
         } else {
-          dates[start.format('YYYY-MM-DD')] = { disabled: true };
+          dates[start.format("YYYY-MM-DD")] = { disabled: true };
         }
-        start.add(1, 'days');
+        start.add(1, "days");
       }
       return dates;
     } catch (error) {}
@@ -198,21 +198,21 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
 
   const disableForHalfYearlyFreq = (month: any, year: any) => {
     try {
-      let start: any = moment().month(month).year(year).startOf('month');
-      let end: any = moment().month(month).year(year).endOf('month');
+      let start: any = moment().month(month).year(year).startOf("month");
+      let end: any = moment().month(month).year(year).endOf("month");
       let dates: any = {};
       while (start.isBefore(end)) {
         if (
-          start >= moment(minDate).subtract(1, 'd') &&
+          start >= moment(minDate).subtract(1, "d") &&
           start < moment(maxDate) &&
           moment(sipData?.date).date() == start.date() &&
-          start.diff(moment(sipData?.date), 'months') % 6 == 0
+          start.diff(moment(sipData?.date), "months") % 6 == 0
         ) {
-          dates[start.format('YYYY-MM-DD')] = { disabled: false };
+          dates[start.format("YYYY-MM-DD")] = { disabled: false };
         } else {
-          dates[start.format('YYYY-MM-DD')] = { disabled: true };
+          dates[start.format("YYYY-MM-DD")] = { disabled: true };
         }
-        start.add(1, 'days');
+        start.add(1, "days");
       }
       return dates;
     } catch (error) {}
@@ -220,21 +220,21 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
 
   const disableForYearlyFreq = (month: any, year: any) => {
     try {
-      let start: any = moment().month(month).year(year).startOf('month');
-      let end: any = moment().month(month).year(year).endOf('month');
+      let start: any = moment().month(month).year(year).startOf("month");
+      let end: any = moment().month(month).year(year).endOf("month");
       let dates: any = {};
       while (start.isBefore(end)) {
         if (
-          start >= moment(minDate).subtract(1, 'd') &&
+          start >= moment(minDate).subtract(1, "d") &&
           start < moment(maxDate) &&
           moment(sipData?.date).date() == start.date() &&
-          start.diff(moment(sipData?.date), 'months') % 12 == 0
+          start.diff(moment(sipData?.date), "months") % 12 == 0
         ) {
-          dates[start.format('YYYY-MM-DD')] = { disabled: false };
+          dates[start.format("YYYY-MM-DD")] = { disabled: false };
         } else {
-          dates[start.format('YYYY-MM-DD')] = { disabled: true };
+          dates[start.format("YYYY-MM-DD")] = { disabled: true };
         }
-        start.add(1, 'days');
+        start.add(1, "days");
       }
       return dates;
     } catch (error) {}
@@ -242,8 +242,8 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
 
   const disableThirtyFirst = (month: any, year: any) => {
     try {
-      let start: any = moment().month(month).year(year).startOf('month');
-      let end: any = moment().month(month).year(year).endOf('month');
+      let start: any = moment().month(month).year(year).startOf("month");
+      let end: any = moment().month(month).year(year).endOf("month");
       let dates: any = {};
       while (start.isBefore(end)) {
         if (
@@ -251,11 +251,11 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
           start < moment(maxDate) &&
           start.date() != 31
         ) {
-          dates[start.format('YYYY-MM-DD')] = { disabled: false };
+          dates[start.format("YYYY-MM-DD")] = { disabled: false };
         } else {
-          dates[start.format('YYYY-MM-DD')] = { disabled: true };
+          dates[start.format("YYYY-MM-DD")] = { disabled: true };
         }
-        start.add(1, 'days');
+        start.add(1, "days");
       }
       return dates;
     } catch (error) {}
@@ -263,49 +263,49 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
 
   const onMonthChange = (date: any) => {
     switch (sipData?.sipFrequency?.toLowerCase()) {
-      case 'wd':
-      case 'fw':
+      case "wd":
+      case "fw":
         setState({
           markedDates: disableForWeeklyFreq(date.month - 1, date.year),
         });
         break;
-      case 'om':
-      case 'fm':
-      case 'm':
+      case "om":
+      case "fm":
+      case "m":
         setState({
           markedDates: disableForMonthFreq(date.month - 1, date.year),
         });
         break;
-      case 'q':
-      case 'fq':
+      case "q":
+      case "fq":
         setState({
           markedDates: disableForQaterlyFreq(date.month - 1, date.year),
         });
         break;
-      case 'fd':
-      case 'dz':
+      case "fd":
+      case "dz":
         setState({
           markedDates: disableForDailyFreq(
             date.month - 1,
             date.year,
-            DISABLED_DAYS,
+            DISABLED_DAYS
           ),
         });
         break;
-      case 'hy':
-      case 'h':
-      case 'fh':
+      case "hy":
+      case "h":
+      case "fh":
         setState({
           markedDates: disableForHalfYearlyFreq(date.month - 1, date.year),
         });
         break;
-      case 'y':
-      case 'fy':
+      case "y":
+      case "fy":
         setState({
           markedDates: disableForYearlyFreq(date.month - 1, date.year),
         });
         break;
-      case 'ow':
+      case "ow":
         setState({
           markedDates: disableForWeekDayFreq(date.month - 1, date.year),
         });
@@ -318,43 +318,43 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
   const monthChangeForStartCalendar = (date: any) => {
     try {
       switch (frequency?.toLowerCase()) {
-        case 'fd':
-        case 'dz':
+        case "fd":
+        case "dz":
           setStartDateState({
             markedDates: disableForDailyFreq(
               date.month - 1,
               date.year,
-              DISABLED_DAYS,
+              DISABLED_DAYS
             ),
           });
           break;
-        case 'wd':
-        case 'fw':
+        case "wd":
+        case "fw":
           // case "ow":
           setStartDateState({
             markedDates: disableForWeeklyFreq(date.month - 1, date.year),
           });
           break;
-        case 'om':
-        case 'fm':
-        case 'q':
-        case 'fq':
-        case 'hy':
-        case 'h':
-        case 'fh':
-        case 'y':
-        case 'fy':
+        case "om":
+        case "fm":
+        case "q":
+        case "fq":
+        case "hy":
+        case "h":
+        case "fh":
+        case "y":
+        case "fy":
           setStartDateState({
             markedDates: disableThirtyFirst(date.month - 1, date.year),
           });
           break;
-        case 'ow':
+        case "ow":
           setStartDateState({
             markedDates: disableForDailyFreq(
               date.month - 1,
               date.year,
               DISABLED_DAYS,
-              false,
+              false
             ),
           });
           break;
@@ -368,7 +368,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
     if (sipData)
       onMonthChange({
         date: moment(currentDate).format(YYYY_MM_DD),
-        year: moment(currentDate).format('YYYY'),
+        year: moment(currentDate).format("YYYY"),
         month: moment(currentDate).month() + 1,
       });
   }, [sipData]);
@@ -377,7 +377,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
     if (isStartCaledar && frequency) {
       monthChangeForStartCalendar({
         date: moment(currentDate).format(YYYY_MM_DD),
-        year: moment(currentDate).format('YYYY'),
+        year: moment(currentDate).format("YYYY"),
         month: moment(currentDate).month() + 1,
       });
     }
@@ -385,7 +385,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
 
   const [firstRun, setFirstRun] = useState(true);
 
-  const [storeRef, setStoreRef] = useState<any>('');
+  const [storeRef, setStoreRef] = useState<any>("");
 
   useEffect(() => {
     if (
@@ -414,28 +414,28 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
     const secondDate = moment(date2);
 
     const isSameMonthAndYear =
-      firstDate.add(2, 'days').isSame(secondDate, 'month') &&
-      firstDate.isSame(secondDate, 'year');
+      firstDate.add(2, "days").isSame(secondDate, "month") &&
+      firstDate.isSame(secondDate, "year");
 
     return isSameMonthAndYear;
   }
 
   return (
     console.log(
-      'perDateperDate',
+      "perDateperDate",
       perDate,
       currentDate,
-      moment(currentDate, 'DD-MMM-YYYY').format(YYYY_MM_DD),
+      moment(currentDate, "DD-MMM-YYYY").format(YYYY_MM_DD)
     ),
     (
-      <Modal visible={visibility} transparent={true} animationType={'fade'}>
+      <Modal visible={visibility} transparent={true} animationType={"fade"}>
         <TouchableWithoutFeedback
           onPress={() => {
             setShowCalender(false);
             setPerDate(
-              moment(moment(currentDate, 'DD-MMM-YYYY').toDate()).format(
-                'YYYY-MM-DD',
-              ),
+              moment(moment(currentDate, "DD-MMM-YYYY").toDate()).format(
+                "YYYY-MM-DD"
+              )
             );
           }}
         >
@@ -447,13 +447,13 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
                 !isDateOfBirthPicker && {
                   minHeight: height / 2.5,
                   maxHeight:
-                    Platform.OS === 'android' ? height * 0.7 : height * 0.6,
+                    Platform.OS === "android" ? height * 0.7 : height * 0.6,
                 },
                 isDateOfBirthPicker && {
                   paddingVertical: moderateScale(16),
                 },
                 {
-                  alignItems: 'center',
+                  alignItems: "center",
                   width: width - moderateScale(20),
                   padding: moderateScale(isDateOfBirthPicker ? 10 : 20),
                 },
@@ -483,35 +483,35 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
                   setStoreRef={setStoreRef}
                 />
               ) : (
-                <View style={{ width: '100%' }}>
+                <View style={{ width: "100%" }}>
                   {isDateOfBirthPicker && (
                     <CalenderCloseButton
                       onPress={() => {
                         setShowCalender(false);
                         setPerDate(
                           moment(
-                            moment(currentDate, 'DD-MMM-YYYY').toDate(),
-                          ).format('YYYY-MM-DD'),
+                            moment(currentDate, "DD-MMM-YYYY").toDate()
+                          ).format("YYYY-MM-DD")
                         );
                       }}
                     />
                   )}
-                  {/* <DatePicker
+                  <DatePicker
                     minDate={
                       minDate
                         ? moment(
-                            moment(minDate, 'DD-MMM-YYYY').toDate(),
-                          ).format('YYYY-MM-DD')
+                            moment(minDate, "DD-MMM-YYYY").toDate()
+                          ).format("YYYY-MM-DD")
                         : null
                     }
                     maxDate={
                       maxDate
                         ? moment(
-                            moment(maxDate, 'DD-MMM-YYYY').toDate(),
-                          ).format('YYYY-MM-DD')
+                            moment(maxDate, "DD-MMM-YYYY").toDate()
+                          ).format("YYYY-MM-DD")
                         : perDate
                         ? perDate
-                        : moment(currentDate, 'DD-MMM-YYYY').toDate()
+                        : moment(currentDate, "DD-MMM-YYYY").toDate()
                     }
                     // maxDate={maxDate}
                     selectedDateStyles={{
@@ -528,44 +528,49 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
                       backgroundColor: colors.themeColor,
                     }}
                     initialViewDate={
-                      perDate !== 'Invalid date'
-                        ? moment(currentDate, 'DD-MMM-YYYY').format(YYYY_MM_DD)
+                      perDate !== "Invalid date"
+                        ? moment(currentDate, "DD-MMM-YYYY").format(YYYY_MM_DD)
                         : currentDate
-                        ? moment(currentDate, 'DD-MMM-YYYY').format(YYYY_MM_DD)
+                        ? moment(currentDate, "DD-MMM-YYYY").format(YYYY_MM_DD)
                         : perDate
                     }
                     initialSelectedDate={
-                      perDate !== 'Invalid date'
-                        ? moment(currentDate, 'DD-MMM-YYYY').format(YYYY_MM_DD)
+                      perDate !== "Invalid date"
+                        ? moment(currentDate, "DD-MMM-YYYY").format(YYYY_MM_DD)
                         : currentDate
-                        ? moment(currentDate, 'DD-MMM-YYYY').format(YYYY_MM_DD)
+                        ? moment(currentDate, "DD-MMM-YYYY").format(YYYY_MM_DD)
                         : perDate
                     }
                     isTodayDisable={isTodayDisable}
                     onChange={(date: any) => {
-                      console.log('date setPerDate', date);
+                      console.log("date setPerDate", date);
                       setPerDate(date);
+                      //* Dont run this code
+                      // if(checkSameMonthAndYear(perDate,date)){
+                      //   setShowCalender(false)
+                      //   onSelectDate({ dateString: date })
+                      // }
                     }}
-                    weekendDateColor={'black'}
-                  /> */}
+                    weekendDateColor={"black"}
+                  />
                   <View
                     style={{
-                      flexDirection: 'row',
-                      width: '100%',
+                      flexDirection: "row",
+                      width: "100%",
                       marginVertical: moderateScale(4),
-                      justifyContent: 'space-around',
+                      justifyContent: "space-around",
                       marginTop: moderateScale(26),
                     }}
                   >
                     <CalendarControl
-                      title={'Select'}
+                      title={"Select"}
                       onPress={() => {
                         if (perDate) {
                           onSelectDate({
                             dateString:
-                              perDate === 'Invalid date'
-                                ? moment(currentDate, 'DD-MMM-YYYY').format(
-                                    YYYY_MM_DD,
+                              perDate === "Invalid date"
+                                ? moment(currentDate, "DD-MMM-YYYY").format(
+                                    YYYY_MM_DD
                                   )
                                 : perDate,
                           });
@@ -597,9 +602,9 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
 export const CalendarControl = ({ title, onPress }: any) => {
   return (
     <ButtonWithIcon
-      TextStyle={{ fontWeight: '600', color: colors.white }}
+      TextStyle={{ fontWeight: "600", color: colors.white }}
       mainContainer={{
-        width: '40%',
+        width: "40%",
         backgroundColor: colors?.themeColor,
         borderWidth: moderateScale(1),
         borderColor: colors.themeColor,
@@ -617,29 +622,29 @@ export default CalendarComponent;
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#00000055',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#00000055",
   },
   calenderContainer: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: moderateScale(20),
     borderRadius: moderateScale(10),
   },
   invalidDateTxt: {
     marginTop: moderateScale(5),
-    color: 'red',
-    textAlign: 'center',
+    color: "red",
+    textAlign: "center",
   },
   closeIconStyle: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
     marginRight: moderateScale(8),
   },
 });

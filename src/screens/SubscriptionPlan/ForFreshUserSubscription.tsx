@@ -77,7 +77,18 @@ const ForFreshUserSubscription: React.FC<SubscriptionPlanProps> = ({
         setisLoading(false);
         if (response.statusCode == STATUS_CODES?.RESPONSE_OK) {
           if (response?.data?.id) {
-            navigation?.goBack();
+            allActions.seekerDetails
+              .GetSeekerPersonalInfo(
+                dispatch,
+                requestbody,
+                API_FUN_NAMES?.getSeekerPersonalInfo
+              )
+              .then((response: any) => {
+                navigation?.goBack();
+              })
+              .catch((err) => {
+                logger("error_err_buy_plan", err);
+              });
           }
         } else {
           Alert?.alert("Status", response?.message);
