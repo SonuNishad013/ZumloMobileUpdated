@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "232705133608",
+    "project_id": "zumlo-9835c",
+    "storage_bucket": "zumlo-9835c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232705133608:android:5e3701af46d5b821ba391d",
+        "android_client_info": {
+          "package_name": "com.zumlo.mentalapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232705133608-epcrhi93ktiset54tnjmt0r94kovjt5c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zumlo.mentalapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "232705133608-lh5o631h02561655nuevtmborlg9q48b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zumlo.mentalapp",
+            "certificate_hash": "5c871bfc56ea5d69b69bde273323f0ea31ac4b16"
+          }
+        },
+        {
+          "client_id": "232705133608-j3kgkv5jrr2ooe4cc12b2tdbjmbu11kb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuQjO05RXpjgdJETjgjb7EISlvHUwfJ4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232705133608-j3kgkv5jrr2ooe4cc12b2tdbjmbu11kb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

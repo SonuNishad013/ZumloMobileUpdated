@@ -103,6 +103,33 @@ android {
             storeType "pkcs12"    
         }
     }
+      // IMPORTANT: define flavorDimensions
+    flavorDimensions "default"
+
+    // IMPORTANT: define your two product flavors
+    productFlavors {
+        // Flavor 1: com.sonu.app -> SonuApp
+        ZumloApp {
+            dimension "default"
+
+            // This is the real package name used on device and Play Store
+            applicationId "com.zumlo.app"
+
+            // This sets the app's display name (used by AndroidManifest label)
+            resValue "string","app_name", "Zumlostag"
+        }
+
+        // Flavor 2: com.sonu.healthApp -> SonuHealthApp
+       ZumloMentalApp {
+            dimension "default"
+
+            // This is the real package name used on device and Play Store
+            applicationId "com.zumlo.mentalapp"
+
+            // This sets the app's display name
+            resValue "string", "app_name","Zumlo"
+        }
+    }
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
@@ -115,6 +142,7 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+  
 }
 
 configurations.all {
