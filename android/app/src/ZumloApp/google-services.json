@@ -1,0 +1,70 @@
+{
+  "project_info": {
+    "project_number": "1029527483193",
+    "project_id": "zumlo-6dc05",
+    "storage_bucket": "zumlo-6dc05.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029527483193:android:4faf1e1ccc87b79c466ee8",
+        "android_client_info": {
+          "package_name": "com.zumlo.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029527483193-101rjrrnn17sfeg2tre0571huardd35l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zumlo.app",
+            "certificate_hash": "8c2d26f828d2573189bb70d3bd220f164afd72af"
+          }
+        },
+        {
+          "client_id": "1029527483193-l5e49c1jvkptcauq40blgjt4r4v18dba.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zumlo.app",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1029527483193-m1qiktiborl7kmlt8i96abjldkieno50.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zumlo.app",
+            "certificate_hash": "d69a05bc6a61b0101de2c853ebb06043084ffb87"
+          }
+        },
+        {
+          "client_id": "1029527483193-61m877n2b57nvn7dkku8uev6nvfblk64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJhC-5RuAFt_8Sc58bfNsUGy1P1uYnxsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029527483193-61m877n2b57nvn7dkku8uev6nvfblk64.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1029527483193-4hj8j8i5p0ftntefk1ucaqo14tv4ca30.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.zumlo.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

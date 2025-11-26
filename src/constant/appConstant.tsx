@@ -1,8 +1,8 @@
 import { imagePath } from "../assets/png/imagePath";
 // export const environment = "development";
-export const environment: any = "staging";
+// export const environment: any = "staging";
 // export const environment: any = "QA";
-// export const environment: any = "production";
+export const environment: any = "production";
 
 function getEnvironment(environment: any) {
   const env: any = {

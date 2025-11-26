@@ -27,7 +27,7 @@ import {
 } from "../constant/notificationFormName";
 import { communityCode } from "../constant/CommunityConstant";
 import useETLQuestions from "../components/Hooks/useETLQuestions";
-import { getTimeGap } from "../components/Hooks/getTimeGap";
+
 import moment from "moment";
 import { aiProvider } from "../constant/appConstant";
 import logger from "../constant/logger";
@@ -123,11 +123,6 @@ export default function App() {
   ]);
 
   const GetUserMissingProfileDataPointQuestions = async (canNav?: boolean) => {
-    const currentRoute = routenavigationRef.current?.getCurrentRoute();
-    const currentRouteNamePlannerDashboard =
-      currentRoute?.name === "PlannerDashboard";
-
-    if (!currentRouteNamePlannerDashboard) return;
     try {
       let requestbody = {};
       const response =
@@ -147,58 +142,29 @@ export default function App() {
         setDynamicPromptingQuestionAvl(!isDataEmpty);
         return response.statusCode; // Return status to update state
       } else if (canNav) {
-        let getTime = getTimeGap(
-          moment(response?.data?.[0]?.lastRecordSavedDate)
-            .local()
-            .format("DD-MM-YYYY HH:mm:ss")
-        );
-        logger("getTime___", getTime);
         const randomRoute = !hasEtl
           ? navigationString.DynamicPrompts
           : navigationString.ETLQuestionsIndex;
 
-        logger(
-          "currentRouteName_____==PlannerDashboard",
-          currentRouteNamePlannerDashboard
-        );
-        if (response?.data?.[0]?.lastRecordSavedDate === undefined) {
-          routenavigationRef.current?.navigate(randomRoute, {
-            from: "DP",
-            parsedResponseData: response,
-            hasEtl: hasEtl,
-          });
-        }
+        const currentRoute_ = routenavigationRef.current?.getCurrentRoute();
+        const currentRouteNamePlannerDashboard_ =
+          currentRoute_?.name === "PlannerDashboard";
+        if (!currentRouteNamePlannerDashboard_) return;
         if (hasEtl) {
-          let promptComesWithinFourHour = getTime?.isWithinFourHours; // if prompt comes within 4 hour then dont show else navigate the user to the dynamic prompt screen
-          if (!promptComesWithinFourHour && currentRouteNamePlannerDashboard) {
+          if (currentRouteNamePlannerDashboard_) {
             routenavigationRef.current?.navigate(randomRoute, {
               from: "DP",
               parsedResponseData: response,
               hasEtl: hasEtl,
             });
           }
-          if (promptComesWithinFourHour && currentRouteNamePlannerDashboard) {
-            //dynamic prompting testing code uncomment this
-            routenavigationRef.current?.navigate(randomRoute, {
-              from: "DP",
-              parsedResponseData: response,
-              hasEtl: hasEtl,
-            });
-          } //This need to be commented. uncomment this in case of dynamic prompt testing and etl testing
         } else {
-          let promptComesWithinFourHour = getTime?.isWithinFourHours;
-          if (!promptComesWithinFourHour && currentRouteNamePlannerDashboard) {
+          if (currentRouteNamePlannerDashboard_) {
             routenavigationRef.current?.navigate(randomRoute, {
               from: "DP",
               parsedResponseData: response,
             });
           }
-          if (promptComesWithinFourHour && currentRouteNamePlannerDashboard) {
-            routenavigationRef.current?.navigate(randomRoute, {
-              from: "DP",
-              parsedResponseData: response,
-            });
-          } //dynamic prompting testing code uncomment this
         }
       }
     } catch (err) {

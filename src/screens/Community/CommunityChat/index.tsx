@@ -293,7 +293,7 @@ const CommunityChat: React.FC<Props> = ({ navigation, route }: any) => {
                 ? messages.length > 0
                   ? moderateScale(50)
                   : moderateScale(40)
-                : moderateScale(1)
+                : moderateScale(15)
             }
           >
             {!loader ? (

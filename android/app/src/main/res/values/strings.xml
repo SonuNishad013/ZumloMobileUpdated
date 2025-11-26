@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">ZumloMobileLts</string>
+    <string name="app_name">Zumlo</string>
+    <string name="facebook_app_id">1134815774527603</string>
+    <string name="asset_statements" translatable="false">[{ \"include\": \"https://marketing-dev.zumlo.co/.well-known/assetlinks.json\" }]</string>
 </resources>

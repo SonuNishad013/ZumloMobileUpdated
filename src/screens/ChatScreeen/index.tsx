@@ -451,7 +451,7 @@ const ChatScreen = ({ navigation, route }: any) => {
                 style={{ flex: 1 }}
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
                 keyboardVerticalOffset={
-                  Platform.OS === "ios" ? moderateScale(50) : 1
+                  Platform.OS === "ios" ? moderateScale(50) : moderateScale(15)
                 }
               >
                 {!loader ? (
