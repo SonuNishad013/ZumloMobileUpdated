@@ -1,5 +1,5 @@
 // styles.ts
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import {
   moderateScale,
   textScale,
@@ -479,13 +479,6 @@ export const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(19),
     gap: moderateScale(20),
     marginTop: moderateScale(30),
-  },
-  chatView: {
-    position: "absolute",
-    bottom: moderateScale(10),
-    right: moderateScale(17),
-    alignItems: "center",
-    borderRadius: 100,
   },
   headerTextColor: {
     color: colors?.prussianBlue,

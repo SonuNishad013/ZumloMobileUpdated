@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import {
   Animated,
+  Platform,
   StyleSheet,
   TouchableOpacity,
   View,
@@ -128,7 +129,7 @@ export default AiAnimatedButton;
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    bottom: moderateScale(80),
+    bottom: Platform?.OS === "android" ? moderateScale(150) : moderateScale(10),
     right: moderateScale(15),
     alignItems: "center",
   },

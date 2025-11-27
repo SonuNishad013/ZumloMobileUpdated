@@ -141,7 +141,8 @@ const RenderExploereCards = ({
       setCardsData(
         data.filter(
           (item: any) =>
-            item.codeName !== GlobalCodeName?.Reduce_Stress_Activities
+            item.codeName !== GlobalCodeName?.Reduce_Stress_Activities &&
+            item.codeName !== "Conversation"
         )
       );
       setTimeout(() => {
@@ -186,7 +187,7 @@ const RenderExploereCards = ({
           setActivityId(response?.data?.[0]);
         }
       })
-      .catch((err: any) => {});
+      .catch((err: any) => { });
   };
   const getSeekerPersonalInfo = async () => {
     let userId = 0;
@@ -205,7 +206,7 @@ const RenderExploereCards = ({
           console.log("response");
         }
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 
   const saveSettingGoals = async (inedx: any) => {
@@ -261,7 +262,7 @@ const RenderExploereCards = ({
       .then((response: any) => {
         console.log("response SaveSeekerPlannerExplorerId", response);
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
   const navWithSelectExplorer = async (
     nav: string,
@@ -441,63 +442,57 @@ const RenderExploereCards = ({
                     cards={cardsData}
                     renderCard={(cardData: any, index: any) => {
                       return (
-                        <>
-                          {cardData.codeName !== "Conversation" &&
-                            cardData.codeName !==
-                              "Reduce stress Activities" && (
-                              <Animated.View
-                                style={{ transform: [{ translateY }] }}
-                              >
-                                <FastImage
-                                  source={{
-                                    uri: cardData?.imageURL,
-                                    priority: FastImage.priority.high,
-                                    cache: FastImage.cacheControl.immutable,
-                                  }}
-                                  resizeMode={FastImage.resizeMode.stretch}
-                                  style={styles.cardImageBackground}
-                                >
-                                  <View style={styles.cardContentContainer}>
-                                    <Text style={styles.cardSubTitle}>
-                                      {cardData?.subTitle}
-                                    </Text>
-                                    <Text style={styles.cardDescription}>
-                                      {cardData?.description}
-                                    </Text>
-                                  </View>
-                                  <TouchableOpacity
-                                    onPress={() => {
-                                      navigateTo(
-                                        cardData?.codeName,
-                                        index,
-                                        userData
-                                      );
-                                    }}
-                                    // disabled={disableButton}
-                                    style={[
-                                      styles.detailsContainer,
-                                      {
-                                        backgroundColor:
-                                          cardData?.codeName === "Setting Goals"
-                                            ? colors?.backgroundTheme
-                                            : colors?.polishedPine,
-                                      },
-                                    ]}
-                                  >
-                                    <Text style={styles.detailsText}>
-                                      {capitalizeFirstLetter(
-                                        getBtnName(cardData)
-                                      )}
-                                    </Text>
-                                    <Image
-                                      style={styles.arrow}
-                                      source={imagePath?.CirArrow}
-                                    />
-                                  </TouchableOpacity>
-                                </FastImage>
-                              </Animated.View>
-                            )}
-                        </>
+                        <Animated.View
+                          style={{ transform: [{ translateY }] }}
+                        >
+                          <FastImage
+                            source={{
+                              uri: cardData?.imageURL,
+                              priority: FastImage.priority.high,
+                              cache: FastImage.cacheControl.immutable,
+                            }}
+                            resizeMode={FastImage.resizeMode.stretch}
+                            style={styles.cardImageBackground}
+                          >
+                            <View style={styles.cardContentContainer}>
+                              <Text style={styles.cardSubTitle}>
+                                {cardData?.subTitle}
+                              </Text>
+                              <Text style={styles.cardDescription}>
+                                {cardData?.description}
+                              </Text>
+                            </View>
+                            <TouchableOpacity
+                              onPress={() => {
+                                navigateTo(
+                                  cardData?.codeName,
+                                  index,
+                                  userData
+                                );
+                              }}
+                              // disabled={disableButton}
+                              style={[
+                                styles.detailsContainer,
+                                {
+                                  backgroundColor:
+                                    cardData?.codeName === "Setting Goals"
+                                      ? colors?.backgroundTheme
+                                      : colors?.polishedPine,
+                                },
+                              ]}
+                            >
+                              <Text style={styles.detailsText}>
+                                {capitalizeFirstLetter(
+                                  getBtnName(cardData)
+                                )}
+                              </Text>
+                              <Image
+                                style={styles.arrow}
+                                source={imagePath?.CirArrow}
+                              />
+                            </TouchableOpacity>
+                          </FastImage>
+                        </Animated.View>
                       );
                     }}
                     disableBottomSwipe={true}
@@ -506,9 +501,10 @@ const RenderExploereCards = ({
                     onSwiped={(cardIndex: number) => {
                       if (cardIndex == 5) setCurrentIndex(6);
                     }}
-                    cardIndex={0}
+                    cardIndex={currentIndex}
                     backgroundColor={"transparent"}
                     stackSize={3}
+                    showSecondCard={true}
                   />
                 )}
               </>

@@ -9,15 +9,12 @@ import {
   ImageBackground,
   Image,
   Platform,
-  StyleSheet,
-  Dimensions,
 } from "react-native";
 import moment from "moment";
 import colors from "../../../constant/colors";
 import {
   height,
   moderateScale,
-  textScale,
   width,
 } from "../../../constant/responsiveStyle";
 import {
@@ -42,7 +39,6 @@ import AddWellnessPlanDetails from "./AddWellnessPlanDetails";
 import { strings } from "../../../constant/strings";
 import ShimmerPlaceHolder from "../../../components/SimmerEffect";
 import { imagePath } from "../../../assets/png/imagePath";
-import { ChatWithAi } from "../../../assets";
 import {
   filterCategoryData,
   filterglobalCodeOptionsData,
@@ -103,6 +99,7 @@ import { CTAButtonWellbieng } from "./MyBlurList";
 import { communityCode } from "../../../constant/CommunityConstant";
 import NotificationPopup from "./NotificationPopup";
 import { CreateUserDeviceCall } from "../../../redux/actions/loginAction";
+import ChatWithAiButton from "../../../components/Buttons/ChatWithAiButton";
 var subscriptionStatus: any = false;
 let subscriptionTitle = "Subscription Plans";
 interface DataItem {
@@ -114,7 +111,6 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
   navigation,
   route,
 }) => {
-  const { NotificationData } = route?.params ? route?.params : "";
   const [userData, setuserData] = useState<any>();
   const [currentTime, setCurrentTime] = useState(new Date());
   const [dashboardData, setDashbaordData] = useState<any>({});
@@ -247,9 +243,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
     checkFCMExist();
   }, []);
 
-  // useEffect(() => {
-  //   if (UserType == undefined) getLoginUserTyep();
-  // }, [UserType == undefined]);
+
   useEffect(() => {
     getGlobalCode();
     getUserTokenn();
@@ -334,7 +328,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
         requestbody,
         API_FUN_NAMES?.getSeekerPersonalInfo
       )
-      .then((response: any) => {})
+      .then((response: any) => { })
       .catch((err) => {
         loggerMessage("error_err", err);
       });
@@ -406,16 +400,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
       payload: null,
     });
   };
-  // const getLoginUserTyep = async () => {
-  //   setisLoading1(true);
-  //   let loginType = await AsyncStorage.getItem(AsyncStorage.ISPLANNER_USER);
-  //   setUserType(JSON.parse(loginType));
-  //   setisLoading1(false);
-  //   let parsedLoginType = JSON.parse(loginType);
-  //   if (!parsedLoginType?.isPlanner && parsedLoginType?.forResourceLibrary) {
-  //     getResourceLibraryData();
-  //   }
-  // };
+
   const getSeekerPersonalInfo = async () => {
     let userId = 0;
     setisLoading1(true);
@@ -509,7 +494,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
       if (response?.statusCode == STATUS_CODES?.RESPONSE_OK) {
         getSeekerPersonalInfo();
       }
-    } catch (err: any) {}
+    } catch (err: any) { }
   };
 
   const GetMobileDashboardPrompts = async () => {
@@ -526,20 +511,20 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
           let filterData =
             response?.data.length > 0
               ? response?.data
-                  ?.filter(
-                    (item: any) =>
-                      !item.isRecordExist &&
-                      ![
-                        PrompTypeENUM?.Goals_And_Aspirations,
-                        PrompTypeENUM?.Profile,
-                        PrompTypeENUM?.Preferences,
-                      ].includes(item?.codeName) &&
-                      item?.title !== "Goals And Aspirations"
-                  )
-                  .sort(
-                    (x: DataItem, y: DataItem) =>
-                      new Date(x.modifiedDate) - new Date(y.modifiedDate)
-                  )
+                ?.filter(
+                  (item: any) =>
+                    !item.isRecordExist &&
+                    ![
+                      PrompTypeENUM?.Goals_And_Aspirations,
+                      PrompTypeENUM?.Profile,
+                      PrompTypeENUM?.Preferences,
+                    ].includes(item?.codeName) &&
+                    item?.title !== "Goals And Aspirations"
+                )
+                .sort(
+                  (x: DataItem, y: DataItem) =>
+                    new Date(x.modifiedDate) - new Date(y.modifiedDate)
+                )
               : [];
 
           setIsWellnessPlanExsit(
@@ -694,7 +679,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
         setHabitListData([]);
         if (setHabitListData) setHabitListData([]);
       }
-    } catch (error) {}
+    } catch (error) { }
   };
   // Function to check if all objects except vitalTypesMaxScore are empty
   const areAllOtherObjectsEmpty = (obj: any) => {
@@ -785,8 +770,8 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
                       parsedStatus.length === scheduleTimes.length
                         ? parsedStatus
                         : Array(scheduleTimes.length).fill(
-                            parsedStatus[0] || strings?.Not_started
-                          );
+                          parsedStatus[0] || strings?.Not_started
+                        );
 
                     const partialStatus =
                       (alignedStatusArray.includes(
@@ -795,12 +780,12 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
                         alignedStatusArray.includes(
                           ActivityComplitionStatus?.Completed
                         )) ||
-                      (alignedStatusArray.includes(
-                        ActivityComplitionStatus?.Completed
-                      ) &&
-                        alignedStatusArray.includes(
-                          ActivityComplitionStatus?.Not_started
-                        ))
+                        (alignedStatusArray.includes(
+                          ActivityComplitionStatus?.Completed
+                        ) &&
+                          alignedStatusArray.includes(
+                            ActivityComplitionStatus?.Not_started
+                          ))
                         ? ActivityComplitionStatus?.Partially_Completed
                         : alignedStatusArray[0];
 
@@ -1081,7 +1066,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
             styles.containerCaursal,
             (item?.title === strings?.Profile ||
               item?.title === strings?.Goals_) &&
-              styles.profileGoalsBorder,
+            styles.profileGoalsBorder,
           ]}
         >
           <ImageBackground
@@ -1179,7 +1164,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
       userInfo?.basicInformation?.isBetaUser ||
       userInfo?.basicInformation?.isOrganizationSeeker ||
       userInfo?.subscriptionPlanInfo?.duration ==
-        MEMBERSHIP_DURATION?.MONTHLY ||
+      MEMBERSHIP_DURATION?.MONTHLY ||
       userInfo?.subscriptionPlanInfo?.duration == MEMBERSHIP_DURATION?.YEARLY
     ) {
       return null;
@@ -1207,7 +1192,6 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
             })
           }
         />
-        {logger("isSwiping______", isSwiping)}
         <FlatList
           data={["1"]}
           nestedScrollEnabled
@@ -1247,7 +1231,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
                     <LabelHeader
                       title={strings?.Suggestions_}
                       showAll={false}
-                      seelAllClick={() => {}}
+                      seelAllClick={() => { }}
                     />
 
                     <View
@@ -1298,8 +1282,8 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
                               ? 0.5
                               : 1
                             : dashboardPromptIndex === 2
-                            ? 0.5
-                            : 1,
+                              ? 0.5
+                              : 1,
                         }}
                         disabled={
                           isWellnessPlanExsit
@@ -1320,7 +1304,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
                 <LabelHeader
                   title={strings?.Health_insights}
                   showAll={false}
-                  seelAllClick={() => {}}
+                  seelAllClick={() => { }}
                 />
 
                 {renderHealthDevice()}
@@ -1341,7 +1325,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
                     <LabelHeader
                       title={strings?.Add_Journaling}
                       showAll={false}
-                      seelAllClick={() => {}}
+                      seelAllClick={() => { }}
                     />
                     <AddJournaling
                       navigation={navigation}
@@ -1352,14 +1336,14 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
                 <LabelHeader
                   title={"Your daily boost"}
                   showAll={false}
-                  seelAllClick={() => {}}
+                  seelAllClick={() => { }}
                 />
                 <AffirmationCard navigation={navigation} />
 
                 <LabelHeader
                   title={"Create your goals"}
                   showAll={false}
-                  seelAllClick={() => {}}
+                  seelAllClick={() => { }}
                 />
                 <CreateGoals navigation={navigation} />
 
@@ -1382,14 +1366,14 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
                 <LabelHeader
                   title={"Let's complete your story"}
                   showAll={false}
-                  seelAllClick={() => {}}
+                  seelAllClick={() => { }}
                 />
                 <ProfileCard navigation={navigation} />
 
                 <LabelHeader
                   title={"Tune the app to you"}
                   showAll={false}
-                  seelAllClick={() => {}}
+                  seelAllClick={() => { }}
                 />
                 <AddWellnessPlanDetails
                   onAddWellnessPlanDetails={() => {
@@ -1402,6 +1386,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
             </>
           )}
         />
+
         <AiAnimatedButton
           isOpen={isOpen}
           setOpened={() => setOpened(!isOpen)}
@@ -1418,13 +1403,11 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
             )
           }
         />
-        <TouchableOpacity
-          activeOpacity={1}
+
+        <ChatWithAiButton
           onPress={() => onChatIcon()}
-          style={styles?.chatView}
-        >
-          <ChatWithAi height={moderateScale(56)} width={moderateScale(57)} />
-        </TouchableOpacity>
+        />
+
       </View>
       {aiLoader && <CommonHealthLoader />}
 
@@ -1467,53 +1450,4 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
 };
 export default Dashboard;
 
-const stylesInline = StyleSheet.create({
-  container: {
-    position: "relative", // Allows children to be absolutely positioned
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  overlayText: {
-    textAlign: "center",
-    color: colors.royalOrange, // or whatever stands out on the SVG
-    fontSize: textScale(14),
-    fontWeight: "600",
-  },
-  upgradeButtonContainer: {
-    backgroundColor: "rgb(54,87,103)",
-    padding: moderateScale(5),
-    borderRadius: moderateScale(20),
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
-    marginTop: moderateScale(15),
-  },
-  upgradeText: {
-    color: colors.SurfCrest,
-    fontSize: textScale(12),
-    fontWeight: "600",
-    marginHorizontal: moderateScale(5),
-    textAlign: "center",
-  },
-  contain: {
-    width: width,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  position: {
-    position: "absolute",
-  },
-  flatlistStyle: {
-    gap: moderateScale(10),
-  },
-  Affirmations_bg: {
-    height: moderateScale(140),
-    width: Dimensions?.get("window")?.width - moderateScale(40),
-    resizeMode: "stretch",
-    marginBottom: moderateScale(20),
-  },
-  headerView: {
-    paddingHorizontal: moderateScale(19),
-    marginTop: moderateScale(10),
-  },
-});
+

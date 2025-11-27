@@ -3,12 +3,9 @@ import {
   TouchableOpacity,
   View,
   Text,
-  ScrollView,
   Dimensions,
-  Platform,
   BackHandler,
   StyleSheet,
-  Alert,
 } from "react-native";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import ScreenWrapper from "../../../components/SafeArea/SafeAreaWrapper";
@@ -18,7 +15,6 @@ import { strings } from "../../../constant/strings";
 import {
   moderateScale,
   textScale,
-  width,
 } from "../../../constant/responsiveStyle";
 import ReviewPlans from "./ReviewPlans";
 import { imagePath } from "../../../assets/png/imagePath";
@@ -27,7 +23,6 @@ import { styles } from "./styles";
 import WellnessCompleted from "../../ExplorerWelcome/WellnessCompleted";
 import allActions from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-
 import MyBlurList from "../Planner/MyBlurList";
 import {
   calculateActivitySubmissions,
@@ -38,7 +33,7 @@ import CommonLoader from "../../../components/Loader";
 import { useFocusEffect } from "@react-navigation/native";
 import * as AsyncStorage from "../../../utils/Storage/AsyncStorage";
 import AiAnimatedButton from "../Planner/AiAnimatedButton";
-import { ChatWithAi } from "../../../assets";
+import ChatWithAiButton from "../../../components/Buttons/ChatWithAiButton";
 import navigationString from "../../../navigation/navigationString";
 import onBoardingTypes from "../../../redux/types/onBoardingTypes";
 import moment from "moment";
@@ -68,7 +63,6 @@ interface Props {
 }
 
 const WellnessOverview: React.FC<Props> = ({ navigation, route }) => {
-  const { params } = route;
   const focus = useIsFocused();
   const subscriptionDetail = useSelector(getBuySubscriptionDetail());
   const getseekerInfoRedux = useSelector(getSeekerInfoRedux());
@@ -86,10 +80,8 @@ const WellnessOverview: React.FC<Props> = ({ navigation, route }) => {
   const [isLoading1, setisLoading1] = useState(false);
   const [retry, setRetry] = useState(0);
   const [selected, setSelected] = useState("Week");
-  const options = ["Week", "Month", "All"];
   const [userToken, setuserToken] = useState<any>();
   const [aiLoader, setAiLoader] = useState(false);
-  const [feedBackData, setfeedBackData] = useState<any>([]);
   const [isLoading, setisLoading] = useState(false);
   const [toasterDetails, setToasterDetails] = useState<any>({
     showToast: false,
@@ -98,10 +90,12 @@ const WellnessOverview: React.FC<Props> = ({ navigation, route }) => {
   });
   const [isBlur, setIsBlur] = useState(true);
   const [showModal, setShowModal] = useState(false);
-
-  //
   const [showJournalModal, setShowJournalModal] = useState(false);
   const [moodJournalData, setMoodJournalData] = useState<any>({});
+  const [DeviceID, setDeviceID] = useState("");
+  const [userDetails, setUserDetails] = useState(null);
+  const [isReadyForDynamicPrompting, setIsReadyForDynamicPrompting] =
+    useState(false);
 
   const dispatch = useDispatch();
 
@@ -151,10 +145,7 @@ const WellnessOverview: React.FC<Props> = ({ navigation, route }) => {
     []
   );
   //user details and signal r connection
-  const [DeviceID, setDeviceID] = useState("");
-  const [userDetails, setUserDetails] = useState(null);
-  const [isReadyForDynamicPrompting, setIsReadyForDynamicPrompting] =
-    useState(false);
+
   useEffect(() => {
     async function fetchData() {
       const response = await DeviceInfo.getUniqueId();
@@ -350,7 +341,7 @@ const WellnessOverview: React.FC<Props> = ({ navigation, route }) => {
             setTimeout(() => {
               if (
                 response.data?.subscriptionPlanInfo?.productId ==
-                  PLAN_IDS?.BASIC_PLAN ||
+                PLAN_IDS?.BASIC_PLAN ||
                 response.data?.subscriptionPlanInfo == null
               ) {
                 setShowModal(true);
@@ -370,9 +361,8 @@ const WellnessOverview: React.FC<Props> = ({ navigation, route }) => {
   }, [selected]);
   const GetWellnessOverview = async (selected: any) => {
     const date = moment(new Date()).format("YYYY-MM-DD");
-    let req = `?targetDate=${date}&GoalsTimePeriod=${
-      selected == "Week" ? 1 : selected == "Month" ? 2 : 3
-    }`;
+    let req = `?targetDate=${date}&GoalsTimePeriod=${selected == "Week" ? 1 : selected == "Month" ? 2 : 3
+      }`;
     // let params = apiConstant().GetWellnessOverview + req
     const response = await allActions.dashboardAction.GetWellnessOverview(
       dispatch,
@@ -437,7 +427,7 @@ const WellnessOverview: React.FC<Props> = ({ navigation, route }) => {
         }
       } else {
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const RenderHeader = () => (
@@ -486,8 +476,6 @@ const WellnessOverview: React.FC<Props> = ({ navigation, route }) => {
       isSelected: false,
     },
   ];
-
-  const { width } = Dimensions.get("window");
 
   return (
     <>
@@ -642,8 +630,7 @@ const WellnessOverview: React.FC<Props> = ({ navigation, route }) => {
             opacity: aiLoader ? 0.5 : 1,
           }}
         />
-        <TouchableOpacity
-          activeOpacity={1}
+        <ChatWithAiButton
           onPress={() => {
             if (!aiLoader) {
               navigation.navigate(navigationString.ChatScreen, {
@@ -653,16 +640,7 @@ const WellnessOverview: React.FC<Props> = ({ navigation, route }) => {
               });
             }
           }}
-          style={{
-            position: "absolute",
-            bottom: moderateScale(10),
-            right: moderateScale(17),
-            alignItems: "center",
-            borderRadius: 100,
-          }}
-        >
-          <ChatWithAi height={moderateScale(56)} width={moderateScale(57)} />
-        </TouchableOpacity>
+        />
         {isLoading && <CommonLoader />}
         {toasterDetails?.showToast && (
           <ToastApiResponse
