@@ -156,19 +156,15 @@ export default class StaticTabbar extends React.PureComponent<Props> {
                   left: tabWidth * key,
                   width: tabWidth,
                   bottom: 10,
-                  height: 64,
+                  height: 68,
                   justifyContent: "center",
                   alignItems: "center",
                   opacity: opacity1,
-                  zIndex: -99,
-                  //transform:[{scale:2}]
-                  // backgroundColor:'red'
+                  zIndex: 99,
                 }}
                 pointerEvents={"box-none"}
               >
                 <View style={newActiveIcon}>{tab.activeIcon}</View>
-
-                {/* <Text style={mergeLabelStyle}>{tab.name} </Text> */}
               </Animated.View>
             </React.Fragment>
           );

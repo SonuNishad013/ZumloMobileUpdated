@@ -173,7 +173,6 @@ const DashboardStack = () => {
     navigationString.RepplaceWellnessActivity,
     navigationString?.IndependentFeed,
     navigationString?.Affirmations,
-    // navigationString.PlannerDashboard,
     navigationString?.SubscriptionPlan,
     navigationString?.SubscriptionDetail,
     navigationString?.SubscriptionStatus,
@@ -192,7 +191,6 @@ const DashboardStack = () => {
   ]);
 
   const screens = [
-    // Goals Screens
     { name: navigationString.CreateGoal, component: CreateGoal },
     { name: navigationString.GoalDuration, component: GoalDuration },
     { name: navigationString.MyActivity, component: MyActivity },
@@ -453,7 +451,7 @@ const DashboardStack = () => {
     };
   }, []);
 
-  useHideTabBar(routesWithoutTabs, "ExplorerDashboard");
+
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}

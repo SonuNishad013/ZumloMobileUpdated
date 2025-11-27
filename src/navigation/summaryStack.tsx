@@ -232,7 +232,7 @@ const screens = [
   },
 ];
 const SummaryStack = () => {
-  useHideTabBar(routesWithoutTabs, "Summary");
+
 
   return (
     <>

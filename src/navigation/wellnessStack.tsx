@@ -194,7 +194,7 @@ const screens = [
 ];
 
 const WellnessStack = () => {
-  useHideTabBar(routesWithoutTabs, "ExplorerDashboard");
+
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}

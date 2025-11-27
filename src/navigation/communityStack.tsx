@@ -102,7 +102,7 @@ const screens = [
   { name: navigationString.ViewMedia, component: ViewMedia },
 ];
 const CommunityStack = () => {
-  useHideTabBar(routesWithoutTabs, "Community");
+
 
   return (
     <Stack.Navigator

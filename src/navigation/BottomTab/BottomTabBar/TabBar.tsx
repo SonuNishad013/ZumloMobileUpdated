@@ -1,6 +1,6 @@
 import * as React from "react";
 import {
-    SafeAreaView,
+
     StyleSheet,
     Dimensions,
     View,
@@ -13,11 +13,12 @@ import * as shape from "d3-shape";
 import Svg, { Path } from "react-native-svg";
 import StaticTabbar from "./StaticTabbar";
 import { moderateScale } from "../../../constant/responsiveStyle";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 // let width = 390;
 let { width } = Dimensions.get("window");
-const height = Platform.OS == 'ios' ? moderateScale(64) : moderateScale(83);
+const height = Platform.OS == 'ios' ? moderateScale(74) : moderateScale(83);
 
 const getPath = (tabWidth: number, width: number, totalTab: number) => {
 
@@ -70,7 +71,8 @@ export default class Tabbar extends React.PureComponent<Props> {
 
     render() {
         const focusedOptions: any = this.props.descriptors[this.props.state?.routes[this.props.state?.index]?.key]?.options;
-        if (focusedOptions.tabBarVisible === false) {
+
+        if (focusedOptions.tabBarVisible === false || focusedOptions.tabBarStyle?.display === 'none') {
             return null;
         }
 
@@ -123,18 +125,17 @@ export default class Tabbar extends React.PureComponent<Props> {
             return (
                 <>
                     <View
-                        style={{
+                        style={[{
                             backgroundColor: tabBarContainerBackground
                                 ? tabBarContainerBackground
                                 : "#fff",
-                            // position: "absolute",
                             bottom: containerBottomSpace ? containerBottomSpace : 0,
                             alignSelf: "center",
                             borderTopRightRadius,
                             borderTopLeftRadius,
                             borderBottomLeftRadius,
                             borderBottomRightRadius,
-                        }}
+                        }, focusedOptions.tabBarStyle]}
                     >
                         <View
                             {...{
@@ -143,6 +144,7 @@ export default class Tabbar extends React.PureComponent<Props> {
                                 backgroundColor: tabBarContainerBackground
                                     ? tabBarContainerBackground
                                     : "#fff",
+
                                 alignSelf: "center",
                                 borderTopRightRadius,
                                 borderTopLeftRadius,
@@ -157,7 +159,7 @@ export default class Tabbar extends React.PureComponent<Props> {
                                     transform: [{ translateX }],
                                     justifyContent: "center",
                                     alignItems: "center",
-                                    zIndex: -99,
+                                    zIndex: 99,
                                     height: 200
                                 }}
                             >
@@ -167,13 +169,13 @@ export default class Tabbar extends React.PureComponent<Props> {
                                 <StaticTabbar defaultActiveTabIndex={this?.props?.state?.index} {...this.props} {...{ tabs, value }} />
                             </View>
                         </View>
-                        <SafeAreaView
+                        {/* <SafeAreaView
                             style={{
                                 alignSelf: "center",
                                 borderBottomLeftRadius,
                                 borderBottomRightRadius,
                             }}
-                        />
+                        /> */}
                     </View>
                 </>
             );

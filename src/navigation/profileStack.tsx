@@ -272,7 +272,7 @@ const screens = [
 ];
 //
 const ProfileStack = () => {
-  useHideTabBar(routesWithoutTabs, "Profile");
+
   return (
     <>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
