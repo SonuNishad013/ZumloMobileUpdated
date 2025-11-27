@@ -14,6 +14,8 @@
     "ios-bundle": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
     "android-aab": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && cd android && ./gradlew clean && ./gradlew bundle",
     "android-apk": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && cd android && ./gradlew clean && ./gradlew assembleRelease",
+    "android-aab-zumlo": "node scripts/increment-version.js && cd android && ./gradlew bundleZumloAppRelease",
+    "android-aab-mental": "node scripts/increment-version.js && cd android && ./gradlew bundleZumloMentalAppRelease",
     "watchman-clean": "watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn install && yarn start -- --reset-cache",
     "clean": "rm -f ios/Podfile.lock && rm -rf node_modules && rm -rf ios/Pods && rm -rf ios/build && rm -f yarn.lock && rm -f ios/.xcode.env.local && rm -rf ~/Library/Developer/Xcode/DerivedData ",
     "adb": "adb reverse tcp:8081 tcp:8081"
