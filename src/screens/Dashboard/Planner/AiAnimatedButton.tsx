@@ -129,7 +129,7 @@ export default AiAnimatedButton;
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    bottom: Platform?.OS === "android" ? moderateScale(150) : moderateScale(10),
+    bottom: moderateScale(150),
     right: moderateScale(15),
     alignItems: "center",
   },

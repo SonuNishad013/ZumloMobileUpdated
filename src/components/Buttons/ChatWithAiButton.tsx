@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    Platform,
     StyleSheet,
     TouchableOpacity,
     ViewStyle,
@@ -14,25 +13,13 @@ interface Props {
 }
 
 const ChatWithAiButton: React.FC<Props> = ({ onPress, style }) => {
-    // Check if device is Android and version is 15 (API 35) or higher
-    // Platform.Version on Android returns the API level
-    const isAndroid15OrHigher = Platform.OS === 'android' && Platform.Version >= 35;
-
-    // Determine bottom position based on OS and version
-    const getBottomPosition = () => {
-        if (Platform.OS === 'android') {
-            return isAndroid15OrHigher ? moderateScale(90) : moderateScale(10);
-        }
-        return moderateScale(10); // iOS and others
-    };
-
     return (
         <TouchableOpacity
             activeOpacity={1}
             onPress={onPress}
             style={[
                 styles.container,
-                { bottom: getBottomPosition() },
+                { bottom: moderateScale(90) },
                 style,
             ]}
         >
