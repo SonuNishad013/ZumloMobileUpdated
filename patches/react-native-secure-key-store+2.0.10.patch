@@ -1,0 +1,22 @@
+diff --git a/node_modules/react-native-secure-key-store/android/build.gradle b/node_modules/react-native-secure-key-store/android/build.gradle
+index 335a1de..8cd93a4 100644
+--- a/node_modules/react-native-secure-key-store/android/build.gradle
++++ b/node_modules/react-native-secure-key-store/android/build.gradle
+@@ -14,7 +14,7 @@ buildscript {
+             // JCenter is going read-only repository indefinitely
+             // Gradle is discouraging jcenter to avoid to avoid build issues - pipeline
+             // ref: https://blog.gradle.org/jcenter-shutdown
+-            jcenter()
++            mavenCentral()
+         }
+ 
+         dependencies {
+@@ -43,7 +43,7 @@ android {
+ repositories {
+     google()
+     mavenCentral()
+-    jcenter()
++    mavenCentral()
+ }
+ 
+ dependencies {
