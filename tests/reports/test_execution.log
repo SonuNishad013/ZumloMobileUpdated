@@ -1,0 +1,180 @@
+2025-12-02 11:26:48,950 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:26:48,950 - tests.conftest - INFO - TEST SESSION STARTED
+2025-12-02 11:26:48,950 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:26:48,950 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:26:48,950 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:26:48,952 - tests.utils.driver_factory - ERROR - Failed to initialize mobile driver: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1044c68b0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-12-02 11:26:49,043 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:26:49,043 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:26:49,044 - tests.utils.driver_factory - ERROR - Failed to initialize mobile driver: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1047e1ae0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-12-02 11:26:49,115 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:26:49,115 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:26:49,116 - tests.utils.driver_factory - ERROR - Failed to initialize mobile driver: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1047e3bd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-12-02 11:26:49,182 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:26:49,182 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:26:49,183 - tests.utils.driver_factory - ERROR - Failed to initialize mobile driver: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1047e2250>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-12-02 11:26:49,256 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:26:49,256 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:26:49,257 - tests.utils.driver_factory - ERROR - Failed to initialize mobile driver: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104cf59d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-12-02 11:26:49,325 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:26:49,325 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:26:49,326 - tests.utils.driver_factory - ERROR - Failed to initialize mobile driver: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104cf7790>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-12-02 11:26:49,396 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:26:49,396 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:26:49,397 - tests.utils.driver_factory - ERROR - Failed to initialize mobile driver: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104c845a0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-12-02 11:26:49,467 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:26:49,467 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:26:49,468 - tests.utils.driver_factory - ERROR - Failed to initialize mobile driver: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104c869c0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-12-02 11:26:49,537 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:26:49,537 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:26:49,538 - tests.utils.driver_factory - ERROR - Failed to initialize mobile driver: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104ce86b0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-12-02 11:26:49,609 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:26:49,609 - tests.conftest - INFO - TEST SESSION COMPLETED
+2025-12-02 11:26:49,609 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:29:10,861 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:29:10,861 - tests.conftest - INFO - TEST SESSION STARTED
+2025-12-02 11:29:10,861 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:29:10,861 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:29:10,861 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:29:24,772 - tests.utils.driver_factory - INFO - Mobile driver initialized successfully
+2025-12-02 11:29:51,695 - tests.pages.base_page - ERROR - Element not found: open_wellness_plan
+2025-12-02 11:29:52,104 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/element_not_found_20251202_112951.png
+2025-12-02 11:29:52,104 - tests.pages.base_page - ERROR - Failed to click: open_wellness_plan
+2025-12-02 11:29:52,372 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/click_failed_20251202_112952.png
+2025-12-02 11:29:52,402 - tests.conftest - INFO - Tearing down mobile driver
+2025-12-02 11:29:53,332 - tests.utils.driver_factory - INFO - Driver quit successfully
+2025-12-02 11:29:53,334 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:29:53,335 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:29:59,273 - tests.utils.driver_factory - INFO - Mobile driver initialized successfully
+2025-12-02 11:30:25,643 - tests.pages.base_page - ERROR - Element not found: open_wellness_plan
+2025-12-02 11:30:26,060 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/element_not_found_20251202_113025.png
+2025-12-02 11:30:26,060 - tests.pages.base_page - ERROR - Failed to click: open_wellness_plan
+2025-12-02 11:30:26,330 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/click_failed_20251202_113026.png
+2025-12-02 11:30:26,338 - tests.conftest - INFO - Tearing down mobile driver
+2025-12-02 11:30:27,220 - tests.utils.driver_factory - INFO - Driver quit successfully
+2025-12-02 11:30:27,221 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:30:27,221 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:30:32,628 - tests.utils.driver_factory - INFO - Mobile driver initialized successfully
+2025-12-02 11:30:58,443 - tests.pages.base_page - ERROR - Element not found: open_wellness_plan
+2025-12-02 11:30:58,804 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/element_not_found_20251202_113058.png
+2025-12-02 11:30:58,804 - tests.pages.base_page - ERROR - Failed to click: open_wellness_plan
+2025-12-02 11:30:59,035 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/click_failed_20251202_113058.png
+2025-12-02 11:30:59,043 - tests.conftest - INFO - Tearing down mobile driver
+2025-12-02 11:30:59,703 - tests.utils.driver_factory - INFO - Driver quit successfully
+2025-12-02 11:30:59,704 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:30:59,704 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:31:05,154 - tests.utils.driver_factory - INFO - Mobile driver initialized successfully
+2025-12-02 11:31:30,938 - tests.pages.base_page - ERROR - Element not found: open_wellness_plan
+2025-12-02 11:31:31,458 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/element_not_found_20251202_113130.png
+2025-12-02 11:31:31,458 - tests.pages.base_page - ERROR - Failed to click: open_wellness_plan
+2025-12-02 11:31:31,750 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/click_failed_20251202_113131.png
+2025-12-02 11:31:31,757 - tests.conftest - INFO - Tearing down mobile driver
+2025-12-02 11:31:32,682 - tests.utils.driver_factory - INFO - Driver quit successfully
+2025-12-02 11:31:32,682 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:31:32,683 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:31:37,720 - tests.utils.driver_factory - INFO - Mobile driver initialized successfully
+2025-12-02 11:32:03,520 - tests.pages.base_page - ERROR - Element not found: open_wellness_plan
+2025-12-02 11:32:03,905 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/element_not_found_20251202_113203.png
+2025-12-02 11:32:03,905 - tests.pages.base_page - ERROR - Failed to click: open_wellness_plan
+2025-12-02 11:32:04,114 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/click_failed_20251202_113203.png
+2025-12-02 11:32:04,121 - tests.conftest - INFO - Tearing down mobile driver
+2025-12-02 11:32:04,926 - tests.utils.driver_factory - INFO - Driver quit successfully
+2025-12-02 11:32:04,927 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:32:04,927 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:32:10,178 - tests.utils.driver_factory - INFO - Mobile driver initialized successfully
+2025-12-02 11:32:36,006 - tests.pages.base_page - ERROR - Element not found: open_wellness_plan
+2025-12-02 11:32:36,307 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/element_not_found_20251202_113236.png
+2025-12-02 11:32:36,307 - tests.pages.base_page - ERROR - Failed to click: open_wellness_plan
+2025-12-02 11:32:36,534 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/click_failed_20251202_113236.png
+2025-12-02 11:32:36,545 - tests.conftest - INFO - Tearing down mobile driver
+2025-12-02 11:32:36,962 - tests.utils.driver_factory - INFO - Driver quit successfully
+2025-12-02 11:32:36,963 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:32:36,963 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:32:42,044 - tests.utils.driver_factory - INFO - Mobile driver initialized successfully
+2025-12-02 11:33:07,817 - tests.pages.base_page - ERROR - Element not found: open_wellness_plan
+2025-12-02 11:33:08,208 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/element_not_found_20251202_113307.png
+2025-12-02 11:33:08,208 - tests.pages.base_page - ERROR - Failed to click: open_wellness_plan
+2025-12-02 11:33:08,450 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/click_failed_20251202_113308.png
+2025-12-02 11:33:08,457 - tests.conftest - INFO - Tearing down mobile driver
+2025-12-02 11:33:09,282 - tests.utils.driver_factory - INFO - Driver quit successfully
+2025-12-02 11:33:09,283 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:33:09,283 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:33:14,245 - tests.utils.driver_factory - INFO - Mobile driver initialized successfully
+2025-12-02 11:33:40,068 - tests.pages.base_page - ERROR - Element not found: open_wellness_plan
+2025-12-02 11:33:40,390 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/element_not_found_20251202_113340.png
+2025-12-02 11:33:40,390 - tests.pages.base_page - ERROR - Failed to click: open_wellness_plan
+2025-12-02 11:33:40,630 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/click_failed_20251202_113340.png
+2025-12-02 11:33:40,637 - tests.conftest - INFO - Tearing down mobile driver
+2025-12-02 11:33:41,113 - tests.utils.driver_factory - INFO - Driver quit successfully
+2025-12-02 11:33:41,113 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:33:41,113 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:33:46,669 - tests.utils.driver_factory - INFO - Mobile driver initialized successfully
+2025-12-02 11:34:13,043 - tests.pages.base_page - ERROR - Element not found: open_wellness_plan
+2025-12-02 11:34:13,364 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/element_not_found_20251202_113413.png
+2025-12-02 11:34:13,364 - tests.pages.base_page - ERROR - Failed to click: open_wellness_plan
+2025-12-02 11:34:13,596 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/click_failed_20251202_113413.png
+2025-12-02 11:34:13,604 - tests.conftest - INFO - Tearing down mobile driver
+2025-12-02 11:34:14,385 - tests.utils.driver_factory - INFO - Driver quit successfully
+2025-12-02 11:34:14,385 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:34:14,385 - tests.conftest - INFO - TEST SESSION COMPLETED
+2025-12-02 11:34:14,385 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:36:05,926 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:36:05,926 - tests.conftest - INFO - TEST SESSION STARTED
+2025-12-02 11:36:05,926 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:36:05,926 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:36:05,927 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:36:11,563 - tests.utils.driver_factory - INFO - Mobile driver initialized successfully
+2025-12-02 11:36:11,565 - tests.test_signup - INFO - Starting signup test with email
+2025-12-02 11:36:11,565 - tests.test_signup - INFO - Step 1: Skipping product tour
+2025-12-02 11:36:11,566 - tests.pages.product_tour_page - INFO - Attempting to skip product tour
+2025-12-02 11:36:16,938 - tests.pages.product_tour_page - INFO - Skip button not found, tour may be completed
+2025-12-02 11:36:16,939 - tests.test_signup - INFO - Step 2: Selecting new user option
+2025-12-02 11:36:16,939 - tests.pages.login_type_page - INFO - Clicking 'I'm new to Zumlo' button
+2025-12-02 11:36:37,627 - tests.pages.base_page - ERROR - Element not found: new UiSelector().textContains("new to Zumlo")
+2025-12-02 11:36:38,162 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/element_not_found_20251202_113637.png
+2025-12-02 11:36:38,162 - tests.pages.base_page - ERROR - Failed to click: new UiSelector().textContains("new to Zumlo")
+2025-12-02 11:36:38,405 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/click_failed_20251202_113638.png
+2025-12-02 11:36:38,405 - tests.test_signup - ERROR - Signup test failed: Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/ditsdev/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/ditsdev/.nvm/versions/node/v20.19.4/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/ditsdev/.nvm/versions/node/v20.19.4/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+2025-12-02 11:36:38,441 - tests.conftest - ERROR - Test failed: test_signup_with_email
+2025-12-02 11:36:38,604 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/failure_test_signup_with_email_20251202_113638.png
+2025-12-02 11:36:38,604 - tests.conftest - INFO - Tearing down mobile driver
+2025-12-02 11:36:39,449 - tests.utils.driver_factory - INFO - Driver quit successfully
+2025-12-02 11:36:39,451 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:36:39,451 - tests.conftest - INFO - TEST SESSION COMPLETED
+2025-12-02 11:36:39,451 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:41:23,874 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:41:23,874 - tests.conftest - INFO - TEST SESSION STARTED
+2025-12-02 11:41:23,874 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:41:23,874 - tests.conftest - INFO - Setting up mobile driver
+2025-12-02 11:41:23,874 - tests.utils.driver_factory - INFO - Initializing mobile driver for emulator-5554
+2025-12-02 11:41:29,507 - tests.utils.driver_factory - INFO - Mobile driver initialized successfully
+2025-12-02 11:41:29,514 - tests.test_signup - INFO - Starting signup test with email
+2025-12-02 11:41:29,515 - tests.test_signup - INFO - Step 1: Skipping product tour
+2025-12-02 11:41:29,516 - tests.pages.product_tour_page - INFO - Attempting to skip product tour
+2025-12-02 11:41:34,842 - tests.pages.product_tour_page - INFO - Skip button not found, tour may be completed
+2025-12-02 11:41:34,844 - tests.test_signup - INFO - Step 2: Selecting new user option
+2025-12-02 11:41:34,844 - tests.pages.login_type_page - INFO - Clicking 'I'm new to Zumlo' button
+2025-12-02 11:41:56,141 - tests.pages.base_page - ERROR - Element not found: new_user_btn
+2025-12-02 11:41:56,691 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/element_not_found_20251202_114156.png
+2025-12-02 11:41:56,691 - tests.pages.base_page - ERROR - Failed to click: new_user_btn
+2025-12-02 11:41:56,978 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/click_failed_20251202_114156.png
+2025-12-02 11:41:56,978 - tests.test_signup - ERROR - Signup test failed: Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/ditsdev/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/ditsdev/.nvm/versions/node/v20.19.4/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/ditsdev/.nvm/versions/node/v20.19.4/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+2025-12-02 11:41:57,004 - tests.conftest - ERROR - Test failed: test_signup_with_email
+2025-12-02 11:41:57,237 - tests.utils.helpers - INFO - Screenshot saved: /Users/ditsdev/Documents/ZumloMobileUpdated/tests/reports/screenshots/failure_test_signup_with_email_20251202_114157.png
+2025-12-02 11:41:57,241 - tests.conftest - INFO - Tearing down mobile driver
+2025-12-02 11:41:57,819 - tests.utils.driver_factory - INFO - Driver quit successfully
+2025-12-02 11:41:57,821 - tests.conftest - INFO - ================================================================================
+2025-12-02 11:41:57,821 - tests.conftest - INFO - TEST SESSION COMPLETED
+2025-12-02 11:41:57,821 - tests.conftest - INFO - ================================================================================

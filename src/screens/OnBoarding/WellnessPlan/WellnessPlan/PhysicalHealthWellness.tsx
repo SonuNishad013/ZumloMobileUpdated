@@ -55,6 +55,7 @@ const PhysicalHealthWellness: React.FC<Props> = ({
               <ItemSelectedLine
                 title={"Boost confidence"}
                 isSelected={isSelected}
+                testID={`physical_health_item_${index}`}
                 imageStyle={{
                   tintColor: isSelected
                     ? colors?.royalOrange
@@ -86,6 +87,7 @@ const PhysicalHealthWellness: React.FC<Props> = ({
         />
         <CommonButton
           btnName={"NEXT"}
+          testID="physical_health_next_btn"
           mainContainer={styles.commonButtonContainer}
           onPress={() =>
             navigation?.navigate(navigationString?.StressorsAndTriggers)

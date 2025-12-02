@@ -56,6 +56,7 @@ const LoginType: React.FC<Props> = ({ navigation }): ReactElement => {
             mainContainer={styles.createAccountButton}
             btnNameStyle={styles.createAccountButtonText}
             TextFormatDisable
+            testID="new_user_btn"
           />
         </View>
         <WelcomeZumloICon height={moderateScale(180)} />

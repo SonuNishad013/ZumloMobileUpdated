@@ -30,6 +30,7 @@ interface Props {
   iconSource?: any;
   tintIconColor?: any;
   TextFormatDisable?: boolean;
+  testID?: string;
 }
 
 const CommonButton: React.FC<Props> = ({
@@ -48,6 +49,7 @@ const CommonButton: React.FC<Props> = ({
   iconSource,
   tintIconColor,
   TextFormatDisable,
+  testID,
 }) => {
   return (
     <TouchableOpacity
@@ -55,6 +57,7 @@ const CommonButton: React.FC<Props> = ({
       style={[styles.mainContainer, mainContainer]}
       onPress={onPress}
       disabled={disabled}
+      testID={testID}
     >
       {leftImage && (
         <Image

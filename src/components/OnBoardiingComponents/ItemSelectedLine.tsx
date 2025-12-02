@@ -22,6 +22,7 @@ interface Props {
   onPress?: () => void;
   source?: any;
   tintIconColor?: any;
+  testID?: string;
 }
 export const ItemSelectedLine: React.FC<Props> = ({
   isSelected,
@@ -31,6 +32,7 @@ export const ItemSelectedLine: React.FC<Props> = ({
   onPress,
   source,
   tintIconColor,
+  testID,
 }) => {
   function isSVG(url: any) {
     const svgRegex = /\.svg$/i;
@@ -40,7 +42,7 @@ export const ItemSelectedLine: React.FC<Props> = ({
   return (
     console.log("source==-=-=>", source),
     (
-      <TouchableOpacity onPress={onPress} style={styles.container}>
+      <TouchableOpacity onPress={onPress} style={styles.container} testID={testID}>
         <View style={styles.row}>
           {/* <Image
           style={[styles.imageStyle, imageStyle]}
