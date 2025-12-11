@@ -91,7 +91,7 @@ const StressLevel = ({ allValue, answerData, sendAnser }: any) => {
         }
         index={idx}
         handleButtonClick={handleButtonClick}
-        // onViewableItemsChanged={onViewableItemsChanged}
+      // onViewableItemsChanged={onViewableItemsChanged}
       />
       <FlatList
         scrollEnabled={false}
@@ -99,6 +99,8 @@ const StressLevel = ({ allValue, answerData, sendAnser }: any) => {
         style={{ alignSelf: "center" }}
         horizontal
         keyExtractor={(item, index) => "key" + index}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles?.contentContainerStyle}
         renderItem={({ item, index }: any) => renderItems(item, index)}
       />

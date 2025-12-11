@@ -19,13 +19,15 @@ import { OrgDown, RightCircleIcon } from "../../../assets";
 import ActivityDropDown from "../../../components/DropDown/ActivityDropDown";
 import CommonButton from "../../../components/Buttons/commonButton";
 import HeartRateActivity from "./HeartRateActivity";
-import Picker from "react-native-animated-wheel-picker";
+// import Picker from "react-native-animated-wheel-picker";
+import Picker from "../../../components/CustomWheelPicker";
 import allActions from "../../../redux/actions";
 import ToastMsg from "../../../components/Hooks/useToast";
 import { useDispatch } from "react-redux";
 import CommonLoader from "../../../components/Loader";
 import moment from "moment";
 import ToastApiResponse from "../../../components/Toast/ToastApiResponse";
+import logger from "../../../constant/logger";
 // import Toast from "react-native-toast-message";
 
 interface Props {
@@ -168,7 +170,7 @@ const AddHeartRate: React.FC<Props> = ({ navigation, SvgIcon, route }) => {
         userId: userData?.userId,
         vitalType: 80,
         heartRateVitalData: {
-          heartRateCount: bpmValue,
+          heartRateCount: bpmValue + 2,
           heartActivity: selectedActivity,
           vitalUnit: "bpm",
         },
@@ -339,13 +341,14 @@ const AddHeartRate: React.FC<Props> = ({ navigation, SvgIcon, route }) => {
             </View>
             <Picker
               initialIndex={bpmValue + 1}
-              pickerData={bpm}
+              data={bpm}
               itemHeight={moderateScale(65)}
               textStyle={styles.pickerText}
               onSelected={(item: any) => {
+                logger("item_____>>>", item);
                 onSelected(item);
               }}
-              visible={5}
+              visibleItems={5}
             />
           </View>
 

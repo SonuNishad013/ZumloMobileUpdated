@@ -217,13 +217,13 @@ const GeneratedGoalAI: React.FC<Props> = ({ navigation, route }) => {
   }
 
   const saveCreatedGoals = () => {
-    // saveCreatedGoalsAPI();
+    saveCreatedGoalsAPI();
     // Intentionally commented out: this code is used to show the subscription plan purchase dialog
-    if (subscriptionStatus) {
-      saveCreatedGoalsAPI();
-    } else {
-      setShowModal(true);
-    }
+    // if (subscriptionStatus) {
+    //   saveCreatedGoalsAPI();
+    // } else {
+    //   setShowModal(true);
+    // }
   };
   const saveCreatedGoalsAPI = () => {
     // setisLoading(true);
@@ -243,17 +243,17 @@ const GeneratedGoalAI: React.FC<Props> = ({ navigation, route }) => {
     } else {
       const requestbody = ["Edit", "Replace"].includes(purpuse)
         ? {
-            categoryId: goalsGlobalCode,
-            trackId: trackId !== "" ? trackId : goalsData?.trackId,
-            isRecordReplaced: true,
-            goalId: replcaeApiPayload.id,
-          }
+          categoryId: goalsGlobalCode,
+          trackId: trackId !== "" ? trackId : goalsData?.trackId,
+          isRecordReplaced: true,
+          goalId: replcaeApiPayload.id,
+        }
         : {
-            categoryId: goalsGlobalCode,
-            trackId: goalsData?.trackId,
-            isRecordReplaced: false,
-            goalId: 0,
-          };
+          categoryId: goalsGlobalCode,
+          trackId: goalsData?.trackId,
+          isRecordReplaced: false,
+          goalId: 0,
+        };
       console.log("requestbody_generateGoals", requestbody);
       // return;
       allActions.OnBoarding.CreateGoalsFromAI(
@@ -334,8 +334,8 @@ const GeneratedGoalAI: React.FC<Props> = ({ navigation, route }) => {
                   from === "AIGenerated"
                     ? true
                     : userType?.isPlanner
-                    ? true
-                    : false,
+                      ? true
+                      : false,
                 isSelected: true,
               })
             );
@@ -818,6 +818,8 @@ const GeneratedGoalAI: React.FC<Props> = ({ navigation, route }) => {
                 <FlatList
                   data={data}
                   keyExtractor={(item, index) => "key" + index}
+                  showsVerticalScrollIndicator={false}
+                  showsHorizontalScrollIndicator={false}
                   renderItem={({ item, index }: any) => {
                     console.log("collectedGuidscollectedGuids", {
                       // collectedGuids,
@@ -892,8 +894,8 @@ const GeneratedGoalAI: React.FC<Props> = ({ navigation, route }) => {
                               editModal && editableType === "ACTIVITIES"
                                 ? true
                                 : editableType === "GOALS"
-                                ? false
-                                : showDotClick[index]?.isShow
+                                  ? false
+                                  : showDotClick[index]?.isShow
                             }
                             combinData={
                               item?.activities?.length > 0 &&

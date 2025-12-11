@@ -67,8 +67,8 @@ const UserType: React.FC<Props> = ({ navigation }): ReactElement => {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    getSubscriptionStatusFromServer(dispatch);
-    // setShowContent(true); //remove this
+    // getSubscriptionStatusFromServer(dispatch);
+    setShowContent(true); //remove this
   }, []);
 
   const getSubscriptionStatusFromServer = async (dispatch: any) => {
@@ -160,7 +160,7 @@ const UserType: React.FC<Props> = ({ navigation }): ReactElement => {
       if (response?.statusCode == STATUS_CODES?.RESPONSE_OK) {
         logger("Successfully basic plan purchased");
       }
-    } catch (err: any) {}
+    } catch (err: any) { }
   };
   const platformType = () => {
     if (Platform?.OS == PLATEFORM?.android) {
@@ -255,7 +255,7 @@ const UserType: React.FC<Props> = ({ navigation }): ReactElement => {
         .catch((err: any) => {
           return Promise.resolve(err);
         });
-    } catch (error) {}
+    } catch (error) { }
   };
   const explainerContent = [
     {

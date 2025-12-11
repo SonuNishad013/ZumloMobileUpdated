@@ -97,9 +97,9 @@ const GeneratedActivitiesAI: React.FC<Props> = ({ navigation, route }) => {
   });
   const [modalData, setModalData] = useState<any>({
     type: alertTypes?.editGoalsActivities,
-    onFirstPress: () => {},
-    onSecondPress: () => {},
-    cancelButtonPress: () => {},
+    onFirstPress: () => { },
+    onSecondPress: () => { },
+    cancelButtonPress: () => { },
     isAlertIcon: false,
   });
   const [activitiesGlobalCode, setActivitiesGlobalCode] = useState<
@@ -203,13 +203,13 @@ const GeneratedActivitiesAI: React.FC<Props> = ({ navigation, route }) => {
   }, []);
 
   const createActivities = async () => {
-    // createActivitiesAPI();
+    createActivitiesAPI();
     // Intentionally commented out: this code is used to show the subscription plan purchase dialog
-    if (subscriptionStatus) {
-      createActivitiesAPI();
-    } else {
-      setShowModal(true);
-    }
+    // if (subscriptionStatus) {
+    //   createActivitiesAPI();
+    // } else {
+    //   setShowModal(true);
+    // }
   };
   const createActivitiesAPI = async () => {
     const rawData = getConflictingActivities(data);
@@ -217,7 +217,7 @@ const GeneratedActivitiesAI: React.FC<Props> = ({ navigation, route }) => {
     if (
       rawData?.length !== 0 &&
       JSON.stringify(rawData?.at(0)?.scheduleTime) !==
-        JSON.stringify(oldActivityData?.scheduleTimeArray)
+      JSON.stringify(oldActivityData?.scheduleTimeArray)
     ) {
       setToasterDetails({
         showToast: true,
@@ -232,19 +232,19 @@ const GeneratedActivitiesAI: React.FC<Props> = ({ navigation, route }) => {
       try {
         const requestBody = ["Edit", "Replace"].includes(purpuse)
           ? {
-              categoryId: activitiesGlobalCode,
-              trackId: trackId !== "" ? trackId : activitesData?.trackId,
-              isRecordReplaced: true,
-              isRecordSelected: false,
-              activityId: ExistingID,
-            }
+            categoryId: activitiesGlobalCode,
+            trackId: trackId !== "" ? trackId : activitesData?.trackId,
+            isRecordReplaced: true,
+            isRecordSelected: false,
+            activityId: ExistingID,
+          }
           : {
-              categoryId: activitiesGlobalCode,
-              trackId: activitesData?.trackId,
-              isRecordReplaced: false,
-              isRecordSelected: false,
-              activityId: 0,
-            };
+            categoryId: activitiesGlobalCode,
+            trackId: activitesData?.trackId,
+            isRecordReplaced: false,
+            isRecordSelected: false,
+            activityId: 0,
+          };
 
         const response = await allActions.OnBoarding.CreateActivitiesFromAI(
           dispatch,
@@ -325,8 +325,8 @@ const GeneratedActivitiesAI: React.FC<Props> = ({ navigation, route }) => {
                 from === "AIGenerated"
                   ? true
                   : UserType?.isPlanner
-                  ? true
-                  : false,
+                    ? true
+                    : false,
               isSelected: true,
             })
           );
@@ -557,6 +557,8 @@ const GeneratedActivitiesAI: React.FC<Props> = ({ navigation, route }) => {
                       data={data}
                       keyExtractor={(item, index) => "key" + index}
                       style={styles.flatStyle}
+                      showsVerticalScrollIndicator={false}
+                      showsHorizontalScrollIndicator={false}
                       contentContainerStyle={{ gap: 10 }}
                       renderItem={({ item, index }) => {
                         let extractActivities: any = data?.map((itm: any) => {
@@ -616,9 +618,9 @@ const GeneratedActivitiesAI: React.FC<Props> = ({ navigation, route }) => {
                               subTitle={item?.subActivityName || "--"}
                               isConflict={
                                 JSON.stringify(item?.scheduleTime) !==
-                                  JSON.stringify(
-                                    oldActivityData?.scheduleTimeArray
-                                  ) && item?.isConflicts
+                                JSON.stringify(
+                                  oldActivityData?.scheduleTimeArray
+                                ) && item?.isConflicts
                               }
                               conflictMessage={item?.conflictMessage}
                               cardPress={() => {
@@ -635,18 +637,18 @@ const GeneratedActivitiesAI: React.FC<Props> = ({ navigation, route }) => {
                                       from === "DailyRoutine"
                                         ? "DailyRoutine"
                                         : from === "Wellness Prompt"
-                                        ? "Wellness Prompt"
-                                        : from === "Dashboard"
-                                        ? "Dashboard"
-                                        : from === "WellnessOverview"
-                                        ? from
-                                        : "Activity",
+                                          ? "Wellness Prompt"
+                                          : from === "Dashboard"
+                                            ? "Dashboard"
+                                            : from === "WellnessOverview"
+                                              ? from
+                                              : "Activity",
                                     reqData: reqData,
                                     isConflict:
                                       JSON.stringify(item?.scheduleTime) !==
-                                        JSON.stringify(
-                                          oldActivityData?.scheduleTimeArray
-                                        ) && item?.isConflicts,
+                                      JSON.stringify(
+                                        oldActivityData?.scheduleTimeArray
+                                      ) && item?.isConflicts,
                                     trackId: trackId || activitesData?.trackId,
 
                                     ExistingID: ExistingID,

@@ -79,6 +79,8 @@ const ImagePickerWithText: React.FC<Props> = ({
               data={dataFlatList}
               horizontal
               scrollEnabled={false}
+              showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
               onViewableItemsChanged={onViewableItemsChanged}
               viewabilityConfig={{
                 itemVisiblePercentThreshold: 50,

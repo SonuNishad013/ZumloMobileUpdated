@@ -264,14 +264,14 @@ const WellnessPlan = ({ navigation, route }: any) => {
   };
 
   const onStartWellnessPlan = () => {
-    // onStartWellnessPlanAPI(wellnessPlanReplaceDetials?.isWellPlanIDRequired);
+    onStartWellnessPlanAPI(wellnessPlanReplaceDetials?.isWellPlanIDRequired);
 
     // Intentionally commented out: this code is used to show the subscription plan purchase dialog
-    if (subscriptionStatus) {
-      onStartWellnessPlanAPI(wellnessPlanReplaceDetials?.isWellPlanIDRequired);
-    } else {
-      setShowModal(true);
-    }
+    // if (subscriptionStatus) {
+    //   onStartWellnessPlanAPI(wellnessPlanReplaceDetials?.isWellPlanIDRequired);
+    // } else {
+    //   setShowModal(true);
+    // }
   };
 
   const onStartWellnessPlanAPI = async (isWellPlanIDRequired: boolean) => {
@@ -370,10 +370,10 @@ const WellnessPlan = ({ navigation, route }: any) => {
                 from === "AIGenerated"
                   ? true
                   : from === "ExplorerActivity"
-                  ? false
-                  : UserType?.isPlanner
-                  ? true
-                  : false,
+                    ? false
+                    : UserType?.isPlanner
+                      ? true
+                      : false,
               isSelected: true,
             })
           );
@@ -1207,16 +1207,16 @@ const WellnessPlan = ({ navigation, route }: any) => {
               "fromExplorer",
               "WellnessOverview",
             ].includes(from) && (
-              <View
-                style={{
-                  alignItems: "center",
-                }}
-              >
-                <TouchableOpacity onPress={() => callFunction(reqData1)}>
-                  <Text style={style?.mayBeLater}>{"Maybe later"}</Text>
-                </TouchableOpacity>
-              </View>
-            )}
+                <View
+                  style={{
+                    alignItems: "center",
+                  }}
+                >
+                  <TouchableOpacity onPress={() => callFunction(reqData1)}>
+                    <Text style={style?.mayBeLater}>{"Maybe later"}</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
           </>
         ) : (
           <CommonButton

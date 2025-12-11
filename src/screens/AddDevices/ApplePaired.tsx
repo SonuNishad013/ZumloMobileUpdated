@@ -117,72 +117,6 @@ const ApplePaired: React.FC<Props> = ({ navigation }): ReactElement => {
         return;
       }
       if (
-        result.permissions.read.some((item) => item === 0) &&
-        result.permissions.write.some((item) => item === 0)
-      ) {
-        // if (AppleHealthKit.initHealthKit) {
-        //   AppleHealthKit.initHealthKit(permissions, (error, result) => {
-        //     console.log(
-        //       "initHealthKit==>>>errorerror",
-        //       error,
-        //       "permissions",
-        //       permissions,
-        //       "result",
-        //       result
-        //     );
-        //     if (error) {
-        //       console.error("Error initializing HealthKit:", error);
-        //       if (error.includes("Permissions not allowed")) {
-        //         console.warn(
-        //           "Permissions were denied. Please enable them in the Health app."
-        //         );
-        //       }
-        //       return;
-        //     }
-        //     console.log("check resp===>", permissions);
-        //     setIsAuthorized(true);
-        //     // if (Platform.OS === "ios") {
-        //     //   Alert.alert(
-        //     //     "Health Access Needed",
-        //     //     "To enable health data access, go to Settings > Privacy & Security > Health > Zumlo.",
-        //     //     [
-        //     //       {
-        //     //         text: "Cancel",
-        //     //         style: "cancel",
-        //     //       },
-        //     //       {
-        //     //         text: "Open Settings",
-        //     //         onPress: () => {
-        //     //           Linking.canOpenURL("App-prefs:root:")
-        //     //             .then((supported) => {
-        //     //               if (supported) {
-        //     //                 Linking.openURL("App-prefs:root:"); // Opens the app-specific settings
-        //     //               } else {
-        //     //                 Alert.alert(
-        //     //                   "Error",
-        //     //                   "Unable to open settings. Please navigate to Settings > Privacy & Security > Health manually."
-        //     //                 );
-        //     //               }
-        //     //             })
-        //     //             .catch((err) => {
-        //     //               console.error("Error opening settings:", err);
-        //     //             });
-        //     //         },
-        //     //       },
-        //     //     ]
-        //     //   );
-        //     // } else {
-        //     //   Alert.alert(
-        //     //     "Unsupported Platform",
-        //     //     "Health access is only available on iOS devices."
-        //     //   );
-        //     // }
-        //   });
-        // } else {
-        //   console.log("initHealthKit function is not available");
-        // }
-      }
-      if (
         result.permissions.read.some((item) => item == 2) &&
         result.permissions.write.some((item) => item == 2)
       ) {
@@ -290,156 +224,7 @@ const ApplePaired: React.FC<Props> = ({ navigation }): ReactElement => {
       }
     });
   };
-  useEffect(() => {
-    // const permissions = {
-    //   permissions: {
-    //     read: [
-    //       AppleHealthKit.Constants.Permissions.RestingHeartRate,
-    //       // AppleHealthKit.Constants.Permissions.HeartRate,
-    //       // AppleHealthKit.Constants.Permissions.BloodAlcoholContent,
-    //       // AppleHealthKit.Constants.Permissions.BloodGlucose,
-    // AppleHealthKit.Constants.Permissions.BloodPressureDiastolic,
-    // AppleHealthKit.Constants.Permissions.BloodPressureSystolic,
-    //       // AppleHealthKit.Constants.Permissions.HeartRateVariability,
-    //       // AppleHealthKit.Constants.Permissions.BodyFatPercentage,
-    //       // AppleHealthKit.Constants.Permissions.BodyMass,
-    //       // AppleHealthKit.Constants.Permissions.Water,
-    //       // AppleHealthKit.Constants.Permissions.BodyMassIndex,
-    //       // AppleHealthKit.Constants.Permissions.BodyTemperature,
-    //       // AppleHealthKit.Constants.Permissions.Steps,
-    //       // AppleHealthKit.Constants.Permissions.SleepAnalysis,
-    //     ],
-    //     write: [
-    //       AppleHealthKit.Constants.Permissions.Steps,
-    //       AppleHealthKit.Constants.Permissions.StepCount,
-    //       AppleHealthKit.Constants.Permissions.Vo2Max,
-    //     ],
-    //   },
-    // } as HealthKitPermissions;
-    const permissions = {
-      permissions: {
-        read: [
-          AppleHealthKit.Constants.Permissions.Steps,
-          AppleHealthKit.Constants.Permissions.HeartRate,
-        ],
-        write: [AppleHealthKit.Constants.Permissions.Steps],
-      },
-    } as HealthKitPermissions;
 
-    // AppleHealthKit.initHealthKit(permissions, (error) => {
-    //   if (error) {
-    //     Alert.alert(
-    //       "Permission Error",
-    //       "HealthKit permissions were not granted."
-    //     );
-    //     console.error("HealthKit initialization error:", error);
-    //     return;
-    //   } else {
-    //     Alert.alert(
-    //       "Permission Error",
-    //       "HealthKit permissions were not granted2."
-    //     );
-    //   }
-
-    // });
-    // AppleHealthKit.isAvailable((err: Object, available: boolean) => {
-    //   if (err) {
-    //     setConnectStatus(false);
-    //     return;
-    //   } else {
-    //     AppleHealthKit.initHealthKit(permissions, async (error: string) => {
-    //       /* Called after we receive a response from the system */
-    //       console.log("check error===>", error);
-
-    //       if (error) {
-    //         setConnectStatus(false);
-    //       }
-    //       setisLoading(true);
-    //       setTimeout(() => {
-    //         setConnectStatus(true);
-    //         setisLoading(false);
-    //       }, 1000);
-
-    //       let response = {
-    //         auth: available,
-    //         deviceConnected: "appleHealth",
-    //         name: "Apple",
-    //       };
-    //       // AppStorage.saveKey(
-    //       //   key.APPLE_HEALTH_AUTH_STATUS,
-    //       //   JSON.stringify(response)
-    //       // ).then(() => {});
-    //     });
-    //   }
-    // });
-
-    // if (AppleHealthKit.initHealthKit) {
-    //   AppleHealthKit.initHealthKit(permissions, (error, result) => {
-    //     console.log(
-    //       "initHealthKit==>>>errorerror",
-    //       error,
-    //       "permissions",
-    //       permissions,
-    //       "result",
-    //       result
-    //     );
-    //     if (error) {
-    //       console.error("Error initializing HealthKit:", error);
-
-    //       if (error.includes("Permissions not allowed")) {
-    //         console.warn(
-    //           "Permissions were denied. Please enable them in the Health app."
-    //         );
-    //       }
-    //       return;
-    //     }
-    //     console.log("check resp===>", permissions);
-    //     setIsAuthorized(true);
-    //     if (Platform.OS === "ios") {
-    //       Alert.alert(
-    //         "Health Access Needed",
-    //         "To enable health data access, go to Settings > Privacy & Security > Health > Zumlo.",
-    //         [
-    //           {
-    //             text: "Cancel",
-    //             style: "cancel",
-    //           },
-    //           {
-    //             text: "Open Settings",
-    //             onPress: () => {
-    //               Linking.canOpenURL("App-prefs:root:")
-    //                 .then((supported) => {
-    //                   if (supported) {
-    //                     Linking.openURL("App-prefs:root:"); // Opens the app-specific settings
-    //                   } else {
-    //                     Alert.alert(
-    //                       "Error",
-    //                       "Unable to open settings. Please navigate to Settings > Privacy & Security > Health manually."
-    //                     );
-    //                   }
-    //                 })
-    //                 .catch((err) => {
-    //                   console.error("Error opening settings:", err);
-    //                 });
-    //             },
-    //           },
-    //         ]
-    //       );
-    //     } else {
-    //       Alert.alert(
-    //         "Unsupported Platform",
-    //         "Health access is only available on iOS devices."
-    //       );
-    //     }
-    //     getHeartRateSamples();
-    //     getSleepSamples();
-    //     getStepCount();
-    //     getBloodPressureSamples();
-    //   });
-    // } else {
-    //   console.log("initHealthKit function is not available");
-    // }
-  }, []);
   const saveConnectedDevice = (userData: any) => {
     setisLoading(true);
     try {
@@ -782,7 +567,11 @@ const ApplePaired: React.FC<Props> = ({ navigation }): ReactElement => {
             ? "To enable health data access, go to Settings > Privacy & Security > Health > Zumlo."
             : strings?.PairNext}
         </Text>
-        {/* <Text style={styles.nextToViewText}>{strings?.PairNext}</Text> */}
+        <Text style={styles.nextToViewText}>
+          {
+            "*Note: Please allow read permissions for fetching health data from Health App "
+          }
+        </Text>
       </View>
     </View>
   );

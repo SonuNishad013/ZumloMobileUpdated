@@ -158,13 +158,13 @@ const GeneratedRecommendationsAI: React.FC<Props> = ({ navigation, route }) => {
   };
 
   const createRecommendations = () => {
-    // createRecommendationsAPI();
+    createRecommendationsAPI();
     // Intentionally commented out: this code is used to show the subscription plan purchase dialog
-    if (subscriptionStatus) {
-      createRecommendationsAPI();
-    } else {
-      setShowModal(true);
-    }
+    // if (subscriptionStatus) {
+    //   createRecommendationsAPI();
+    // } else {
+    //   setShowModal(true);
+    // }
   };
   const createRecommendationsAPI = () => {
     setIsLoading(true);
@@ -249,8 +249,8 @@ const GeneratedRecommendationsAI: React.FC<Props> = ({ navigation, route }) => {
                   from === "AIGenerated"
                     ? true
                     : UserType?.isPlanner
-                    ? true
-                    : false,
+                      ? true
+                      : false,
                 isSelected: true,
               })
             );
@@ -346,6 +346,8 @@ const GeneratedRecommendationsAI: React.FC<Props> = ({ navigation, route }) => {
                     }}
                     keyExtractor={(item, index) => "key" + index}
                     contentContainerStyle={{ gap: moderateScale(10) }}
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}
                     ListHeaderComponent={() => {
                       return (
                         <View style={styles?.buttonContainer}>
@@ -414,7 +416,7 @@ const GeneratedRecommendationsAI: React.FC<Props> = ({ navigation, route }) => {
                               }
                               source={
                                 item?.logo &&
-                                !examplerImage.includes(item?.logo)
+                                  !examplerImage.includes(item?.logo)
                                   ? { uri: item?.logo }
                                   : imagePath?.BookPlaceHolder
                               }
@@ -448,12 +450,12 @@ const GeneratedRecommendationsAI: React.FC<Props> = ({ navigation, route }) => {
                               }
                               source={
                                 item?.logo &&
-                                !examplerImage.includes(item?.logo)
+                                  !examplerImage.includes(item?.logo)
                                   ? { uri: item?.logo }
                                   : item?.link &&
                                     !examplerImage.includes(item?.link)
-                                  ? getThumbnailFromYoutubeURL(item?.link)
-                                  : imagePath?.VideoPlayButton
+                                    ? getThumbnailFromYoutubeURL(item?.link)
+                                    : imagePath?.VideoPlayButton
                               }
                               onPress={() =>
                                 navigation?.navigate(
@@ -502,8 +504,8 @@ const GeneratedRecommendationsAI: React.FC<Props> = ({ navigation, route }) => {
                           from === "Wellness Prompt"
                             ? false
                             : from === "Dashboard"
-                            ? false
-                            : true
+                              ? false
+                              : true
                         }
                         aiSuggestion={"recommendations"}
                         onSkipPress={() =>

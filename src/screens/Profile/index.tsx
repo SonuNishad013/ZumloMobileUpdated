@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useCallback,
 } from "react";
-import { FlatList, View, BackHandler, } from "react-native";
+import { FlatList, View, BackHandler, TouchableOpacity } from "react-native";
 import ScreenWrapper from "../../components/SafeArea/SafeAreaWrapper";
 import colors from "../../constant/colors";
 import { moderateScale } from "../../constant/responsiveStyle";
@@ -15,7 +15,7 @@ import NotificationSetting from "./notificationSetting";
 import OtherSetting from "./otherSetting";
 import * as AsyncStorage from "../../utils/Storage/AsyncStorage";
 import allActions from "../../redux/actions";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   accountDataList,
   notificationDataList,
@@ -24,6 +24,7 @@ import {
 import { useFocusEffect, useIsFocused } from "@react-navigation/native";
 import AiAnimatedButton from "../Dashboard/Planner/AiAnimatedButton";
 import navigationString from "../../navigation/navigationString";
+import { ChatWithAi } from "../../assets";
 import * as AsyncStore from "../../utils/Storage/AsyncStorage";
 import DeviceInfo from "react-native-device-info";
 import { strings } from "../../constant/strings";
@@ -31,7 +32,6 @@ import JournalModal from "../MoodTracking/Journal/JournalModal";
 import { aiProvider } from "../../constant/appConstant";
 import { API_FUN_NAMES } from "../../constant/APIsFunctionNames";
 import { getSeekerInfoRedux } from "../../redux/selector";
-import ChatWithAiButton from "../../components/Buttons/ChatWithAiButton";
 
 var subscriptionStatus: any = false;
 const Profile: React.FC<{ navigation?: any }> = ({
@@ -181,7 +181,10 @@ const Profile: React.FC<{ navigation?: any }> = ({
                 {memoizedOther}
               </>
             )}
-            contentContainerStyle={{ paddingBottom: moderateScale(35) }}
+            contentContainerStyle={{
+              paddingBottom: moderateScale(105),
+              marginBottom: moderateScale(30),
+            }}
           />
         </View>
       </View>
@@ -198,7 +201,8 @@ const Profile: React.FC<{ navigation?: any }> = ({
         }
         onMoodJournalingPress={() => setShowModal(true)}
       />
-      <ChatWithAiButton
+      <TouchableOpacity
+        activeOpacity={1}
         onPress={() => {
           if (userData) {
             navigation.navigate(navigationString.ChatScreen, {
@@ -208,7 +212,16 @@ const Profile: React.FC<{ navigation?: any }> = ({
             });
           }
         }}
-      />
+        style={{
+          position: "absolute",
+          bottom: moderateScale(20),
+          right: moderateScale(17),
+          alignItems: "center",
+          borderRadius: 100,
+        }}
+      >
+        <ChatWithAi height={moderateScale(56)} width={moderateScale(57)} />
+      </TouchableOpacity>
       <JournalModal
         navigation={navigation}
         visible={showModal}

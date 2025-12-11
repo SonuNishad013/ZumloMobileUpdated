@@ -109,6 +109,8 @@ const ActivityStats: React.FC<Props> = ({
         keyExtractor={(item, index) => "key" + index}
         style={{ alignSelf: "center" }}
         horizontal
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles?.contentContainerStyle}
         renderItem={({ item, index }: any) => renderItems(item, index)}
       />

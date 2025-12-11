@@ -15,13 +15,13 @@ const seekerDetailsReducer = (
   action: any
 ) => {
   switch (action.type) {
-    case types.GET_SEEKER_PERSONAL_INFO_REQUEST: {
-      return {
-        ...state,
-        isLoading: true,
-        seekerDetails: action.payload,
-      };
-    }
+    // case types.GET_SEEKER_PERSONAL_INFO_REQUEST: {
+    //   return {
+    //     ...state,
+    //     isLoading: true,
+    //     seekerDetails: action.payload,
+    //   };
+    // }
     case types.GET_SEEKER_PERSONAL_INFO_SUCCESS: {
       return {
         ...state,

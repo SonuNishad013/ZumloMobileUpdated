@@ -1,4 +1,5 @@
 import {
+  Alert,
   FlatList,
   ImageBackground,
   Modal,
@@ -115,8 +116,8 @@ const IndependentJournals: React.FC<IndependentJournalsProps> = ({
         requestbody,
         API_FUN_NAMES?.getSeekerPersonalInfo
       )
-      .then((response: any) => {})
-      .catch((err) => {});
+      .then((response: any) => { })
+      .catch((err) => { });
   };
   const fetchMoodJournalingAPI = async () => {
     try {
@@ -224,7 +225,7 @@ const IndependentJournals: React.FC<IndependentJournalsProps> = ({
       <CurrentWeekDays
         dateAble={currentWeek}
         onCalendarPress={() => setShowStartDate(true)}
-        setTodayDate={(date: any) => {}}
+        setTodayDate={(date: any) => { }}
         onSelectDate={(item: any, idx: any, data: any, time: any) => {
           onSelectDate_(item, idx, data, time);
           let selectDate = `${item?.year}-${item?.month_number}-${item?.date}`;
@@ -264,31 +265,45 @@ const IndependentJournals: React.FC<IndependentJournalsProps> = ({
     setCurrentWeek(updatedData);
   };
 
+  const handleBackPress = () => {
+    if (isFrom == "Home") {
+      navigation?.navigate(navigationString?.PlannerDashboard);
+    } else if (isFrom === "Summary") {
+      navigation?.navigate(navigationString?.Summary);
+    } else if (isFrom === "Wellbeing") {
+      navigation?.navigate(navigationString?.WellnessOverview);
+    } else if (isFrom === "Profile" || isFrom === "profile") {
+      navigation?.navigate(navigationString?.Profile);
+    } else {
+      navigation.goBack();
+    }
+  };
   return (
     <ScreenWrapper statusBarColor={colors?.prussianBlue}>
       <View style={{ flex: 1 }}>
         <View style={styles?.backButtonHeaderContainer}>
           <CommonHeader
             headerName={"Journal History"}
-            onBackPress={() => {
-              if (isFrom == "Home") {
-                navigation?.navigate(navigationString?.PlannerDashboard);
-              } else if (isFrom === "Summary") {
-                navigation?.navigate(navigationString?.Summary);
-              } else if (isFrom === "Wellbeing") {
-                navigation?.navigate(navigationString?.WellnessOverview);
-              } else if (isFrom === "Profile" || isFrom === "profile") {
-                navigation?.navigate(navigationString?.Profile);
-              } else {
-                navigation.goBack();
-              }
-            }}
+            onBackPress={handleBackPress}
             iconContainer={styles?.iconContainer}
           />
         </View>
         <View style={{ alignItems: "center" }}>{memorizedDate}</View>
         {showStartDate ? (
           <Modal transparent style={styles?.modal}>
+            <TouchableOpacity
+              style={{
+                position: "absolute",
+                backgroundColor: "transparent",
+                height: moderateScale(50),
+                width: moderateScale(50),
+                zIndex: 100,
+                top: 40,
+                left: 10,
+              }}
+              onPress={handleBackPress}
+            />
+
             <View style={styles?.modalInnerView}>
               <MoodCalendar
                 setShowCalender={(val: boolean) => setShowStartDate(val)}
@@ -340,7 +355,7 @@ const IndependentJournals: React.FC<IndependentJournalsProps> = ({
                         }}
                       >
                         {item?.questionSourceType ==
-                        Enum_QuestionSourceType?.AiGenerated
+                          Enum_QuestionSourceType?.AiGenerated
                           ? "AI"
                           : "Custom"}
                       </Text>
@@ -402,7 +417,7 @@ const IndependentJournals: React.FC<IndependentJournalsProps> = ({
                 </TouchableOpacity>
               );
             }}
-            ListHeaderComponent={({}) => {
+            ListHeaderComponent={({ }) => {
               return (
                 <View
                   style={{
@@ -425,9 +440,8 @@ const IndependentJournals: React.FC<IndependentJournalsProps> = ({
                       fontSize: textScale(10),
                       fontWeight: "400",
                     }}
-                  >{`You’ve journaled ${list?.length} times.${
-                    list?.length > 0 ? "Tap to view or reflect again." : ""
-                  }`}</Text>
+                  >{`You’ve journaled ${list?.length} times.${list?.length > 0 ? "Tap to view or reflect again." : ""
+                    }`}</Text>
                   {fetching && (
                     <View
                       style={{
@@ -535,12 +549,13 @@ const styles = StyleSheet.create({
     color: colors?.SurfCrest,
     fontWeight: "600",
   },
-  modal: { flex: 1, backgroundColor: "gray" },
+  modal: { flex: 1, backgroundColor: "red" },
   modalInnerView: {
     paddingHorizontal: moderateScale(19),
     marginTop: moderateScale(19),
     height: "100%",
     justifyContent: "center",
+    // backgroundColor: colors?.lightSurfCrest02,
   },
   listContainer: {
     gap: moderateScale(10),

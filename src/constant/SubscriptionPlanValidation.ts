@@ -1,4 +1,3 @@
-import { object } from "underscore";
 import { MEMBERSHIP_DURATION } from "./ENUM";
 
 export const subscriptionFun = async (
@@ -12,7 +11,7 @@ export const subscriptionFun = async (
     isOrganizationPlanValid,
   } = getseekerInfoRedux?.basicInformation;
 
-  // return false;
+  return true;
   if (isBetaUser || isOrganizationPlanValid || isFreeTrialActive) {
     return true;
   } else {

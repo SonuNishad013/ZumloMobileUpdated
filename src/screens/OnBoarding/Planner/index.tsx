@@ -88,7 +88,7 @@ const OnBoardingPlannerSteps: React.FC<Props> = ({ navigation, route }) => {
         "Onboarding"
       );
       await getOnboardingSteps(getGlobalCodeOptionsData?.[0]?.globalCodeId);
-    } catch (error) {}
+    } catch (error) { }
   };
   const getOnboardingSteps = async (getOnBoardingGlobalData: any) => {
     setisLoading(true);
@@ -276,6 +276,7 @@ const OnBoardingPlannerSteps: React.FC<Props> = ({ navigation, route }) => {
               style={styles?.subContainer}
               keyExtractor={(item, index) => "key" + index}
               showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
               contentContainerStyle={{
                 paddingBottom: moderateScale(50),
               }}

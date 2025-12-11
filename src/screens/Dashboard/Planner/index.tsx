@@ -151,7 +151,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
   const getseekerInfoRedux = useSelector(getSeekerInfoRedux());
 
   const [userInfo, setUserInfo] = useState<any>({});
-
+  // const [profileDataFetched, setProfileDataFetched] = useState(false)
   const [showModal, setShowModal] = useState(false);
   const [notificationModal, setNotificationModal] = useState(false);
   const [subscriptionModal, setSubscriptionModal] = useState(false);
@@ -220,10 +220,13 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
       GetUserActivityAvailabilityAPI(dispatch);
       getHabitAPICalling();
       getCommunityProfile();
-      getSeekerPersonalInfo();
       clearSavedReduxData();
     }, [])
   );
+  useFocusEffect(useCallback(() => {
+    getSeekerPersonalInfo();
+  }, []))
+
 
   const checkFCMExist = async () => {
     const fcmToken = await AsyncStorage.getItem(AsyncStorage?.FCM_TOKEN);
@@ -416,7 +419,9 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
         if (response.statusCode == STATUS_CODES?.RESPONSE_OK) {
           setisLoading1(false);
           setuserData(response.data);
+          // setProfileDataFetched(true)
           getVitalsActivityStatus(response.data);
+
 
           if (
             response?.data?.basicInformation?.isBetaUser ||
@@ -428,7 +433,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
               !response?.data?.basicInformation?.isFreeTrialActive &&
               response?.data?.subscriptionPlanInfo == null
             ) {
-              fetchSubscriptionList();
+              // fetchSubscriptionList();
             }
           }
         } else {
@@ -1216,7 +1221,7 @@ const Dashboard: React.FC<{ navigation?: any; route?: any }> = ({
                   paddingHorizontal: moderateScale(15),
                 }}
               >
-                {renderSubscriptionCard()}
+                {/* {renderSubscriptionCard()} */}
 
                 {isLoading1 && isLoading && dashboardPrompting?.length == 0 ? (
                   <View style={styles?.alignmentCenterView}>
